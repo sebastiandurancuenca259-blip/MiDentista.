@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0f172a;
+  --color-primary-accent: #0ea5e9;
+  --color-primary-dark: #003852;
+  --color-primary-container: #004666;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #0f172a;
+  --color-secondary-dark: #0284c7;
+  --color-secondary-container: #39b8fd;
+  --color-on-secondary: #ffffff;
+  
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  
+  --color-neutral: #f8fafc;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-container: #f1f5f9;
+  --color-surface-variant: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #64748b;
+  --color-outline: #76777d;
+  --color-outline-variant: #e2e8f0;
+  
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+}
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  
+  --color-primary: #0f172a;
+  --color-primary-accent: #0ea5e9;
+  --color-primary-container: #004666;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed: #dae2fd;
+  
+  --color-secondary: #0f172a;
+  --color-secondary-container: #39b8fd;
+  --color-on-secondary: #ffffff;
+  
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  
+  --color-neutral: #f8fafc;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-container: #f1f5f9;
+  --color-surface-variant: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #64748b;
+  --color-outline: #76777d;
+  --color-outline-variant: #e2e8f0;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.smooth-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
