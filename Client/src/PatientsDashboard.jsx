@@ -9,7 +9,7 @@ export const PatientsDashboard = ({ onLogout }) => {
   const fetchPatients = async () => {
     setLoading(true);
     
-    // Usamos 'creado_en' en lugar de 'created_at'
+    // Consulta usando la columna real 'creado_en'
     const { data, error } = await supabase
       .from('citas')
       .select('*')
