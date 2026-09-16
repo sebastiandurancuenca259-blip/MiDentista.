@@ -8,10 +8,12 @@ export const PatientsDashboard = ({ onLogout }) => {
 
   const fetchPatients = async () => {
     setLoading(true);
+    
+    // Usamos 'creado_en' en lugar de 'created_at'
     const { data, error } = await supabase
-      .from('citas') // <-- Cambiado de 'patients' a 'citas'
+      .from('citas')
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('creado_en', { ascending: false });
 
     if (error) {
       console.error('Error cargando citas/pacientes:', error);
@@ -73,37 +75,41 @@ export const PatientsDashboard = ({ onLogout }) => {
                 <tr className="bg-slate-50 border-b border-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wider">
                   <th className="p-5 pl-8">Paciente</th>
                   <th className="p-5">Contacto</th>
-                  <th className="p-5">Servicio / Detalle</th>
-                  <th className="p-5">Fecha / Hora</th>
+                  <th className="p-5">ID Servicio / Dentista</th>
+                  <th className="p-5">Fecha y Hora</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-sm">
                 {patients.map((patient) => (
                   <tr key={patient.id} className="hover:bg-slate-50/50 transition-colors">
                     <td className="p-5 pl-8 font-bold text-[#0f172a]">
-                      {patient.nombre || patient.full_name || patient.fullName || patient.name || 'Sin Nombre'}
+                      {patient.paciente_nombre || 'Sin Nombre'}
                     </td>
                     <td className="p-5 space-y-1">
                       <div className="flex items-center gap-2 text-slate-600">
                         <Phone className="w-3.5 h-3.5 text-[#0ea5e9]" />
-                        <span>{patient.telefono || patient.phone || 'N/A'}</span>
+                        <span>{patient.paciente_telefono || 'N/A'}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-500 text-xs">
                         <Mail className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{patient.email || 'N/A'}</span>
+                        <span>{patient.paciente_email || 'N/A'}</span>
                       </div>
                     </td>
-                    <td className="p-5">
+                    <td className="p-5 space-y-1">
                       <span className="inline-block bg-[#0ea5e9]/10 text-[#0ea5e9] text-xs font-bold px-3 py-1 rounded-full">
-                        {patient.servicio || patient.interest || patient.service || 'Consulta General'}
+                        Servicio: {patient.servicio_id || 'General'}
                       </span>
+                      {patient.dentista_id && (
+                        <div className="text-xs text-slate-400 pl-1">
+                          Dentista: {patient.dentista_id}
+                        </div>
+                      )}
                     </td>
                     <td className="p-5 text-slate-500 text-xs">
                       <div className="flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         <span>
-                          {patient.fecha || (patient.created_at ? new Date(patient.created_at).toLocaleDateString() : 'N/A')}
-                          {patient.hora ? ` - ${patient.hora}` : ''}
+                          {patient.fecha_cita || 'Sin fecha'} {patient.hora_cita ? `a las ${patient.hora_cita}` : ''}
                         </span>
                       </div>
                     </td>
