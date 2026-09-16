@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Lock } from 'lucide-react';
 
 export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,12 +40,12 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
               </svg>
             </div>
             <h2 className="text-[#0f172a] text-2xl font-serif font-bold tracking-tight">
-              DentaPremium
+              MI DENTISTA
             </h2>
           </button>
 
           {/* Desktop Links & CTA Right-Aligned */}
-          <div className="hidden lg:flex items-center gap-8 ml-auto justify-end">
+          <div className="hidden lg:flex items-center gap-6 ml-auto justify-end">
             <nav className="flex items-center gap-8">
               <button
                 onClick={() => handleNavClick('home')}
@@ -53,7 +53,7 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                   currentPage === 'home' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
                 }`}
               >
-                Home
+                Inicio
               </button>
 
               <button
@@ -62,34 +62,7 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                   currentPage === 'services' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
                 }`}
               >
-                Services
-              </button>
-
-              <button
-                onClick={() => handleNavClick('about')}
-                className={`text-sm font-medium tracking-wider uppercase transition-colors cursor-pointer ${
-                  currentPage === 'about' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
-                }`}
-              >
-                About Us
-              </button>
-
-              <button
-                onClick={() => handleNavClick('team')}
-                className={`text-sm font-medium tracking-wider uppercase transition-colors cursor-pointer ${
-                  currentPage === 'team' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
-                }`}
-              >
-                Our Team
-              </button>
-
-              <button
-                onClick={() => handleNavClick('reviews')}
-                className={`text-sm font-medium tracking-wider uppercase transition-colors cursor-pointer ${
-                  currentPage === 'reviews' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
-                }`}
-              >
-                Reviews
+                Servicios
               </button>
 
               <button
@@ -98,7 +71,7 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                   currentPage === 'contact' ? 'text-[#0ea5e9] font-bold border-b-2 border-[#0ea5e9] pb-1' : 'text-[#64748b] hover:text-[#0f172a]'
                 }`}
               >
-                Contact
+                Contacto
               </button>
             </nav>
 
@@ -110,7 +83,21 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                   : 'bg-[#0f172a] text-white hover:bg-[#0ea5e9]'
               }`}
             >
-              <span>Book Appointment</span>
+              <span>Agendar Cita</span>
+            </button>
+
+            {/* BOTÓN DISCRETO DE ADMIN EN DESKTOP */}
+            <button
+              onClick={() => handleNavClick('admin')}
+              title="Panel Administrador"
+              aria-label="Acceso Administrador"
+              className={`p-2.5 rounded-full border transition-all cursor-pointer ${
+                currentPage === 'admin'
+                  ? 'bg-[#0ea5e9] text-white border-[#0ea5e9]'
+                  : 'bg-slate-50 text-slate-400 border-slate-200 hover:text-[#0f172a] hover:border-slate-300'
+              }`}
+            >
+              <Lock className="w-4 h-4" />
             </button>
           </div>
 
@@ -136,7 +123,7 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                 currentPage === 'home' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
               }`}
             >
-              Home
+              Inicio
             </button>
             <button
               onClick={() => handleNavClick('services')}
@@ -144,31 +131,7 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                 currentPage === 'services' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
               }`}
             >
-              Services
-            </button>
-            <button
-              onClick={() => handleNavClick('about')}
-              className={`text-left font-medium text-base py-2 border-b border-slate-100 ${
-                currentPage === 'about' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
-              }`}
-            >
-              About Us
-            </button>
-            <button
-              onClick={() => handleNavClick('team')}
-              className={`text-left font-medium text-base py-2 border-b border-slate-100 ${
-                currentPage === 'team' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
-              }`}
-            >
-              Our Team
-            </button>
-            <button
-              onClick={() => handleNavClick('reviews')}
-              className={`text-left font-medium text-base py-2 border-b border-slate-100 ${
-                currentPage === 'reviews' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
-              }`}
-            >
-              Reviews
+              Servicios
             </button>
             <button
               onClick={() => handleNavClick('contact')}
@@ -176,16 +139,32 @@ export const Navbar = ({ currentPage = 'home', setCurrentPage }) => {
                 currentPage === 'contact' ? 'text-[#0ea5e9] font-bold' : 'text-[#0f172a]'
               }`}
             >
-              Contact
+              Contacto
             </button>
           </nav>
 
-          <button
-            onClick={() => handleNavClick('booking')}
-            className="flex items-center justify-center w-full rounded-full h-12 px-6 bg-[#0f172a] text-white text-xs font-semibold tracking-widest uppercase hover:bg-[#0ea5e9] transition-all shadow-md mt-2"
-          >
-            Book Appointment
-          </button>
+          <div className="flex items-center gap-3 pt-2">
+            <button
+              onClick={() => handleNavClick('booking')}
+              className="flex items-center justify-center flex-1 rounded-full h-12 px-6 bg-[#0f172a] text-white text-xs font-semibold tracking-widest uppercase hover:bg-[#0ea5e9] transition-all shadow-md"
+            >
+              Agendar Cita
+            </button>
+
+            {/* BOTÓN DISCRETO DE ADMIN EN MÓVIL */}
+            <button
+              onClick={() => handleNavClick('admin')}
+              title="Panel Administrador"
+              aria-label="Acceso Administrador"
+              className={`p-3 rounded-full border transition-all ${
+                currentPage === 'admin'
+                  ? 'bg-[#0ea5e9] text-white border-[#0ea5e9]'
+                  : 'bg-slate-50 text-slate-400 border-slate-200'
+              }`}
+            >
+              <Lock className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       )}
     </header>

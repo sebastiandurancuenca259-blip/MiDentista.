@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Stethoscope, Sparkles, ShieldCheck, Smile, Award, Zap, Layers, Eye, 
-  Anchor, Activity, Crown, HeartPulse, Shield, Grid, Lock, Scissors, 
-  Flame, Moon, AlertCircle, ArrowRight, CheckCircle2, Search, X, Clock, Check
+  Stethoscope, Sparkles, ShieldCheck, Smile, Award, Zap, 
+  Crown, HeartPulse, Shield, Scissors, Flame, ArrowRight, 
+  CheckCircle2, Search, X, Clock, Check
 } from 'lucide-react';
 import gsap from 'gsap';
 
 export const ServiceCategories = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Todos');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedService, setSelectedService] = useState(null);
 
@@ -15,238 +15,139 @@ export const ServiceCategories = () => {
   const gridRef = useRef(null);
 
   const categories = [
-    'All',
-    'General & Preventive',
-    'Cosmetic Dentistry',
-    'Restorative & Implants',
-    'Orthodontics',
-    'Specialty & Surgical',
+    'Todos',
+    'Odontología General',
+    'Ortodoncia',
+    'Prótesis y Rehabilitación',
+    'Estética Dental',
+    'Endodoncia y Cirugía',
   ];
 
   const services = [
-    // General & Preventive
+    // Odontología General
     {
       id: 1,
-      category: 'General & Preventive',
-      title: 'Comprehensive Exams & 3D Diagnostics',
+      category: 'Odontología General',
+      title: 'Consulta Diagnóstica y Evaluación',
       icon: Stethoscope,
-      badge: '45 Mins',
-      tag: 'Foundation',
-      description: 'Thorough digital evaluation of teeth, gums, jaw joint, and surrounding structures using low-radiation 3D imaging.',
-      features: ['Full 360° Oral Assessment', 'Low-Radiation Digital Scans', 'Early Cavity & Cancer Screening'],
-      fullDetails: 'Our comprehensive examinations use advanced 3D CBCT digital imaging to spot underlying issues before they cause pain. Includes gum health charting, bite evaluation, and personalized preventive care guidance.',
+      badge: '30 Min',
+      tag: 'Inicial',
+      description: 'Revisión clínica completa con diagnóstico visual y planificación del tratamiento.',
+      features: ['Evaluación clínica', 'Diagnóstico preventivo', 'Plan de tratamiento personalizado'],
+      fullDetails: 'Realizamos una revisión integral de la cavidad bucal para detectar caries tempranas, problemas de encías o desalineaciones, diseñando un plan de atención a tu medida.',
     },
     {
       id: 2,
-      category: 'General & Preventive',
-      title: 'Professional Hygienic Cleaning & Polishing',
+      category: 'Odontología General',
+      title: 'Limpieza Dental Profunda (Tartrectomía)',
       icon: Sparkles,
-      badge: '45 Mins',
-      tag: 'Essential',
-      description: 'Gentle removal of stubborn plaque, calculus (tartar), and stain buildup to preserve healthy gums and fresh breath.',
-      features: ['Ultrasonic Scaling Tech', 'Air-Flow Stain Removal', 'Fluoride Shield Coating'],
-      fullDetails: 'Conducted by experienced dental hygienists using gentle ultrasonic scalers and air-polishing technology. Leaves your mouth feeling completely refreshed and free of bacterial biofilm.',
+      badge: '45 Min',
+      tag: 'Prevención',
+      description: 'Remoción de sarro y placa bacteriana para encías sanas y un aliento fresco.',
+      features: ['Eliminación de sarro', 'Pulido dental', 'Instrucción de higiene bucal'],
+      fullDetails: 'Limpieza profesional con ultrasonido y pulido para retirar el sarro acumulado que el cepillado diario no logra eliminar, previniendo la gingivitis y enfermedad periodontal.',
     },
     {
       id: 3,
-      category: 'General & Preventive',
-      title: 'Tooth-Colored Composite Fillings',
+      category: 'Odontología General',
+      title: 'Curaciones y Obturaciones de Resina',
       icon: ShieldCheck,
-      badge: 'Same Day',
-      tag: 'Biocompatible',
-      description: 'Biocompatible, non-toxic resin fillings that match your natural tooth shade while restoring structural integrity.',
-      features: ['Seamless Color Matching', 'Mercury-Free & Non-Toxic', 'Single Visit Restoration'],
-      fullDetails: 'We use high-grade nano-composite materials that physically bond to the tooth structure. Completely invisible to the naked eye and mercury-free for safe, long-lasting decay repair.',
-    },
-    {
-      id: 4,
-      category: 'General & Preventive',
-      title: 'Pediatric Dentistry & Protective Sealants',
-      icon: Smile,
-      badge: 'Child Special',
-      tag: 'Family',
-      description: 'Gentle, stress-free dental care designed specifically for children to build lifelong healthy oral habits.',
-      features: ['Kid-Friendly Pain-Free Care', 'Painless Fissure Sealants', 'Custom Growth Monitoring'],
-      fullDetails: 'Our pediatric suite is designed to make children feel safe and excited. We provide cavity-prevention sealants, fluoride treatments, and gentle habit guidance with a warm, caring touch.',
+      badge: 'Mismo Día',
+      tag: 'Restauración',
+      description: 'Tratamiento de caries con resinas estéticas del mismo color de tu diente.',
+      features: ['Resina libre de mercurio', 'Color natural', 'Restauración en una sesión'],
+      fullDetails: 'Eliminamos el tejido dañado por la caries y restauramos la forma y función original del diente utilizando resinas de alta calidad que se mimetizan perfectamente con tu esmalte.',
     },
 
-    // Cosmetic Dentistry
+    // Ortodoncia
+    {
+      id: 4,
+      category: 'Ortodoncia',
+      title: 'Brackets Convencionales y Estéticos',
+      icon: Smile,
+      badge: 'Evaluación',
+      tag: 'Alineación',
+      description: 'Tratamiento de ortodoncia para alinear tus dientes y corregir la mordida.',
+      features: ['Brackets metálicos y estéticos', 'Corrección de mordida', 'Para niños y adultos'],
+      fullDetails: 'Diseñado para corregir apiñamientos y maloclusiones. Ofrecemos opciones metálicas tradicionales y cerámicas estéticas para mayor discreción durante el tratamiento.',
+    },
+
+    // Prótesis y Rehabilitación
     {
       id: 5,
-      category: 'Cosmetic Dentistry',
-      title: 'Custom Porcelain Veneers & Lumineers',
-      icon: Award,
-      badge: 'Premium',
-      tag: 'Popular',
-      description: 'Ultra-thin, hand-crafted ceramic shells bonded to front teeth for a red-carpet flawless smile transformation.',
-      features: ['Stain-Resistant Porcelain', 'Custom Shade & Shape Matching', 'Minimal Tooth Preparation'],
-      fullDetails: 'Custom crafted by master ceramists to match your facial proportions, skin tone, and personal aesthetic goals. Corrects discoloration, gaps, chips, and minor misalignment permanently.',
+      category: 'Prótesis y Rehabilitación',
+      title: 'Prótesis Removibles y Definitivas',
+      icon: Crown,
+      badge: 'Personalizado',
+      tag: 'Rehabilitación',
+      description: 'Reemplazo de piezas dentales faltantes para recuperar la masticación y estética.',
+      features: ['Prótesis parciales y totales', 'Materiales resistentes', 'Ajuste cómodo y natural'],
+      fullDetails: 'Devolvemos la función masticatoria y la sonrisa a pacientes con ausencia de uno o varios dientes, confeccionando prótesis adaptadas a la anatomía de cada paciente.',
     },
+
+    // Estética Dental
     {
       id: 6,
-      category: 'Cosmetic Dentistry',
-      title: 'Laser & Zoom™ Teeth Whitening',
+      category: 'Estética Dental',
+      title: 'Blanqueamiento Dental Profesional',
       icon: Zap,
-      badge: '60 Mins',
-      tag: 'Fast Results',
-      description: 'In-office clinical whitening system capable of brightening your smile up to 8 shades in under one hour.',
-      features: ['Up to 8 Shades Whiter', 'Enamel-Safe Formulation', 'Includes Take-Home Touch-up'],
-      fullDetails: 'Uses light-activated hydrogen peroxide gel with low sensitivity protocols. Includes custom take-home whitening trays to maintain your brilliant white smile indefinitely.',
+      badge: '1 Sesión',
+      tag: 'Estética',
+      description: 'Aclaramiento del tono de los dientes para una sonrisa brillante y renovada.',
+      features: ['Aclaramiento rápido', 'Procedimiento seguro', 'Resultados visibles'],
+      fullDetails: 'Tratamiento clínico seguro que reduce varios tonos del color de los dientes mediante geles blanqueadores activados de forma profesional, protegiendo la salud de tus encías.',
     },
     {
       id: 7,
-      category: 'Cosmetic Dentistry',
-      title: 'Architectural Composite Bonding',
-      icon: Layers,
-      badge: 'Express',
-      tag: '1-Visit',
-      description: 'Artistic direct resin application to repair chipped, gapped, or slightly misaligned teeth in a single visit.',
-      features: ['Immediate Single Visit', 'Reversible & Non-Invasive', 'Affordable Aesthetic Upgrade'],
-      fullDetails: 'Ideal for minor cosmetic touch-ups. Our cosmetic dentists sculpt micro-layered resin directly onto the tooth surface, hardening it with specialized ultraviolet light for instant perfection.',
-    },
-    {
-      id: 8,
-      category: 'Cosmetic Dentistry',
-      title: 'Digital Smile Design (DSD) Makeover',
-      icon: Eye,
-      badge: 'Signature',
-      tag: 'AI-Powered',
-      description: 'Preview your transformed smile in 3D photorealistic visualization before starting any clinical treatment.',
-      features: ['3D Digital Preview', 'Personalized Facial Harmony', 'Multi-Disciplinary Plan'],
-      fullDetails: 'Combines digital photography, intraoral scanning, and facial aesthetic software. Allows you to co-design your final smile with our doctors before commitment.',
+      category: 'Estética Dental',
+      title: 'Carillas de Resina y Diseño de Sonrisa',
+      icon: Award,
+      badge: 'Estética',
+      tag: 'Transformación',
+      description: 'Corrección de forma, tamaño y ligeros apiñamientos para mejorar la estética facial.',
+      features: ['Diseño armónico', 'Corrección de bordes e imperfecciones', 'Mejora estética inmediata'],
+      fullDetails: 'Modelado directo de resinas estéticas sobre la cara frontal del diente para corregir fracturas leves, manchas o formas irregulares de manera conservadora.',
     },
 
-    // Restorative & Implants
+    // Endodoncia y Cirugía
+    {
+      id: 8,
+      category: 'Endodoncia y Cirugía',
+      title: 'Tratamiento de Conducto (Endodoncia)',
+      icon: HeartPulse,
+      badge: 'Alivio Dolor',
+      tag: 'Urgencia',
+      description: 'Tratamiento para salvar dientes con infección o inflamación de la pulpa dental.',
+      features: ['Eliminación del dolor agudo', 'Conservación del diente natural', 'Sellado hermético'],
+      fullDetails: 'Procedimiento enfocado en limpiar y desinfectar el interior del diente (nervio) cuando existe una caries profunda o dolor intenso, evitando así la extracción de la pieza.',
+    },
     {
       id: 9,
-      category: 'Restorative & Implants',
-      title: 'Titanium & Zirconia Dental Implants',
-      icon: Anchor,
-      badge: 'Lifetime Guarantee',
-      tag: 'Gold Standard',
-      description: 'Permanent replacement roots for missing teeth that look, feel, and function exactly like natural teeth.',
-      features: ['Lifetime Structural Durability', 'Prevents Jawbone Atrophy', '99.2% Clinical Success Rate'],
-      fullDetails: 'Implanted into the jawbone using 3D surgical guides for millimeter precision. Integrates seamlessly with your bone (osseointegration) to support custom porcelain crowns.',
+      category: 'Endodoncia y Cirugía',
+      title: 'Extracciones Dentales y Cirugía Simple',
+      icon: Scissors,
+      badge: 'Cuidadoso',
+      tag: 'Cirugía',
+      description: 'Extracción segura de piezas dentales no restaurables con técnica anestésica suave.',
+      features: ['Anestesia efectiva', 'Procedimiento rápido', 'Indicaciones de recuperación'],
+      fullDetails: 'Realizamos extracciones de dientes fracturados o severamente dañados priorizando el bienestar, la tranquilidad y una recuperación rápida sin dolor.',
     },
     {
       id: 10,
-      category: 'Restorative & Implants',
-      title: 'All-on-4 / All-on-6 Full Arch Restorations',
-      icon: Activity,
-      badge: 'Same Day Teeth',
-      tag: 'Transformative',
-      description: 'Complete fixed full-mouth restoration supported by strategically angled implants in a single day.',
-      features: ['Full Arch Fixed Teeth', 'Immediate Functionality', 'Bone Grafting Often Avoided'],
-      fullDetails: 'Replaces a full arch of missing or failing teeth with a non-removable bridge anchored to 4 or 6 implants. Walk out on the same day with a complete set of functional, beautiful teeth.',
-    },
-    {
-      id: 11,
-      category: 'Restorative & Implants',
-      title: 'Porcelain & Ceramic Crowns & Bridges',
-      icon: Crown,
-      badge: 'CAD/CAM',
-      tag: 'High Strength',
-      description: 'Precision-milled tooth caps and bridges that restore structural strength, chewing force, and natural look.',
-      features: ['High-Strength Ceramic', 'Custom Shading & Texture', 'Digital Scanner CAD/CAM'],
-      fullDetails: 'Made from high-grade monolithic zirconia or e.max porcelain. Restores severely decayed or cracked teeth with high fracture resistance and natural light translucency.',
-    },
-    {
-      id: 12,
-      category: 'Restorative & Implants',
-      title: 'Microscopic Root Canal Therapy',
-      icon: HeartPulse,
-      badge: 'Tooth Saver',
-      tag: 'Painless',
-      description: 'High-precision root canal treatment to eliminate nerve infection and preserve your natural tooth.',
-      features: ['Painless Local Anesthesia', '3D Microscopic Precision', 'Saves Natural Tooth Root'],
-      fullDetails: 'Conducted under surgical operating microscopes to ensure every microscopic canal is thoroughly disinfected, sealed, and saved from extraction.',
-    },
-
-    // Orthodontics
-    {
-      id: 13,
-      category: 'Orthodontics',
-      title: 'Invisalign® Clear Aligners',
-      icon: Shield,
-      badge: 'Popular',
-      tag: 'Discreet',
-      description: 'Virtually invisible, removable aligner trays that gently shift your teeth without metal wires or brackets.',
-      features: ['100% Removable & Clear', 'No Dietary Restrictions', '3D Digital Outcome Tracking'],
-      fullDetails: 'Custom-made SmartTrack aligner trays changed every 1-2 weeks. Enjoy eating your favorite foods and brushing normally while straightening your smile discreetly.',
-    },
-    {
-      id: 14,
-      category: 'Orthodontics',
-      title: 'Ceramic & Aesthetic Braces',
-      icon: Grid,
-      badge: 'Precision',
-      tag: 'High Torque',
-      description: 'Tooth-colored ceramic bracket systems offering high force control for complex alignment needs.',
-      features: ['Discreet Translucent Brackets', 'Handles Severe Misalignments', 'Accelerated Movement'],
-      fullDetails: 'Combines the high mechanical strength of traditional orthodontic braces with translucent ceramic brackets that blend in with natural tooth enamel color.',
-    },
-    {
-      id: 15,
-      category: 'Orthodontics',
-      title: 'Custom Retainers & Bruxism Guards',
-      icon: Lock,
-      badge: 'Protection',
-      tag: 'Comfort Fit',
-      description: 'Custom-molded appliances to protect teeth against night grinding and maintain post-ortho results.',
-      features: ['3D Digital Impression', 'BPA-Free Durable Material', 'Jaw Joint Pressure Relief'],
-      fullDetails: 'Custom fabricated from 3D intraoral digital scans for a snug, comfortable fit. Relieves TMJ strain, protects enamel against wear, and keeps aligner results locked in place.',
-    },
-
-    // Specialty & Surgical
-    {
-      id: 16,
-      category: 'Specialty & Surgical',
-      title: 'Wisdom Teeth & Surgical Extractions',
-      icon: Scissors,
-      badge: 'Specialized',
-      tag: 'Piezo Tech',
-      description: 'Gentle surgical removal of impacted or problematic wisdom teeth with rapid recovery protocols.',
-      features: ['Piezo Ultrasonic Surgery', 'Minimal Post-Op Swelling', 'IV Sedation Available'],
-      fullDetails: 'Utilizes ultrasonic piezosurgery instruments that cut bone cleanly while preserving soft nerve tissue. Reduces recovery time, swelling, and discomfort significantly.',
-    },
-    {
-      id: 17,
-      category: 'Specialty & Surgical',
-      title: 'Laser Periodontal Gum Therapy',
+      category: 'Endodoncia y Cirugía',
+      title: 'Atención de Urgencias Dentales',
       icon: Flame,
-      badge: 'Laser Tech',
-      tag: 'Scalpel-Free',
-      description: 'Targeted laser treatment for gum disease and periodontitis without scalpels or invasive sutures.',
-      features: ['Suture-Free Gum Healing', 'Eliminates 99.9% Bacteria', 'Stimulates Tissue Regeneration'],
-      fullDetails: 'LANAP-inspired dental laser treatment targets diseased tissue while leaving healthy tissue intact. Eliminates deep pocket bacteria and encourages natural bone regrowth.',
-    },
-    {
-      id: 18,
-      category: 'Specialty & Surgical',
-      title: 'Sedation Dentistry (Sleep Dentistry)',
-      icon: Moon,
-      badge: 'Anxiety-Free',
-      tag: 'Maximum Comfort',
-      description: 'Relaxing oral or intravenous (IV) sedation allowing anxious patients to sleep through complex procedures.',
-      features: ['Board-Certified Specialist', 'Zero Memory of Pain', 'Ideal for Complex Surgeries'],
-      fullDetails: 'Monitored continuously by certified dental anesthetists. Feel completely relaxed or gently fall asleep, allowing multiple treatments to be completed in a single session.',
-    },
-    {
-      id: 19,
-      category: 'Specialty & Surgical',
-      title: '24/7 Emergency Dental Care',
-      icon: AlertCircle,
-      badge: '24/7 Priority',
-      tag: 'Immediate Care',
-      description: 'Same-day urgent appointments for severe toothaches, broken teeth, trauma, or unexpected dental emergencies.',
-      features: ['Immediate Pain Relief', 'On-Call Dental Specialists', 'Same-Day Treatment Slot'],
-      fullDetails: 'If you experience severe pain, bleeding, or trauma, our emergency team is ready. We prioritize immediate pain relief and fast tooth preservation.',
+      badge: 'Prioritario',
+      tag: 'Urgencia',
+      description: 'Atención oportuna para dolores intensos, golpes, traumatismos o restauraciones caídas.',
+      features: ['Alivio inmediato del dolor', 'Atención rápida', 'Solución de emergencia'],
+      fullDetails: 'Si presentas un dolor agudo, inflamación o un accidente dental, te atendemos con prioridad para resolver la urgencia y calmar las molestias de inmediato.',
     },
   ];
 
   // Filter services by category & search query
   const filteredServices = services.filter((service) => {
-    const matchesCategory = activeCategory === 'All' || service.category === activeCategory;
+    const matchesCategory = activeCategory === 'Todos' || service.category === activeCategory;
     const matchesSearch = 
       service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -279,14 +180,14 @@ export const ServiceCategories = () => {
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
-          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Our Clinical Offerings</span>
+          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Catálogo de Tratamientos</span>
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-4">
-          Explore Our Treatments
+          Nuestros Servicios Dentales
         </h2>
         <p className="text-base sm:text-lg font-light text-[#64748b] leading-relaxed">
-          From preventive hygiene to advanced oral reconstructive surgery, explore our full spectrum of specialized care.
+          Explora nuestra variedad de tratamientos enfocados en mantener tu salud bucal y la de toda tu familia.
         </p>
       </div>
 
@@ -314,7 +215,7 @@ export const ServiceCategories = () => {
           <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[#64748b]" />
           <input
             type="text"
-            placeholder="Search service..."
+            placeholder="Buscar tratamiento..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm text-[#0f172a] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all placeholder:text-[#94a3b8]"
@@ -333,12 +234,12 @@ export const ServiceCategories = () => {
       {/* Services Grid */}
       {filteredServices.length === 0 ? (
         <div className="text-center py-16 bg-slate-50 rounded-3xl border border-slate-200">
-          <p className="text-lg font-medium text-[#64748b]">No services found matching "{searchQuery}"</p>
+          <p className="text-lg font-medium text-[#64748b]">No se encontraron servicios que coincidan con "{searchQuery}"</p>
           <button 
-            onClick={() => { setSearchQuery(''); setActiveCategory('All'); }}
-            className="mt-4 text-sm font-bold text-[#0ea5e9] underline hover:text-[#003852]"
+            onClick={() => { setSearchQuery(''); setActiveCategory('Todos'); }}
+            className="mt-4 text-sm font-bold text-[#0ea5e9] underline hover:text-[#003852] cursor-pointer"
           >
-            Reset Filters
+            Restablecer filtros
           </button>
         </div>
       ) : (
@@ -391,7 +292,7 @@ export const ServiceCategories = () => {
 
                 {/* Footer Link */}
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-widest text-[#0ea5e9]">
-                  <span>View Details & Procedure</span>
+                  <span>Ver detalles del servicio</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -407,7 +308,7 @@ export const ServiceCategories = () => {
             {/* Close Button */}
             <button
               onClick={() => setSelectedService(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-black transition-colors"
+              className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-black transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -430,12 +331,12 @@ export const ServiceCategories = () => {
             {/* Modal Body */}
             <div className="space-y-6 text-[#64748b] text-sm leading-relaxed border-t border-slate-100 pt-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-2">Overview</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-2">Descripción General</h4>
                 <p>{selectedService.fullDetails}</p>
               </div>
 
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-3">Key Patient Benefits</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-3">Beneficios Principales</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {selectedService.features.map((feat, i) => (
                     <div key={i} className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-100">
@@ -449,8 +350,8 @@ export const ServiceCategories = () => {
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 text-[#0f172a]">
                 <Clock className="w-5 h-5 text-[#0ea5e9] shrink-0" />
                 <div>
-                  <span className="text-xs font-bold block text-[#0ea5e9]">Expected Duration & Option</span>
-                  <span className="text-xs">{selectedService.badge} • Comfort anesthesia protocols available</span>
+                  <span className="text-xs font-bold block text-[#0ea5e9]">Duración y Modalidad</span>
+                  <span className="text-xs">{selectedService.badge} • Protocolos de atención sin dolor</span>
                 </div>
               </div>
             </div>
@@ -459,16 +360,16 @@ export const ServiceCategories = () => {
             <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-end gap-4">
               <button
                 onClick={() => setSelectedService(null)}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 text-[#0f172a] text-xs font-bold uppercase tracking-wider hover:bg-slate-200"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 text-[#0f172a] text-xs font-bold uppercase tracking-wider hover:bg-slate-200 cursor-pointer"
               >
-                Close
+                Cerrar
               </button>
               <a
                 href="#booking"
                 onClick={() => setSelectedService(null)}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0f172a] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#0ea5e9] transition-colors text-center"
               >
-                Book This Treatment
+                Agendar Consulta
               </a>
             </div>
           </div>

@@ -40,16 +40,16 @@ export const ContactHeroSection = () => {
         <div ref={textColRef} className="lg:col-span-6 z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-[#0ea5e9] text-xs font-bold uppercase tracking-widest mb-6">
             <Sparkles className="w-4 h-4 text-[#0ea5e9]" />
-            <span>Concierge Patient Care</span>
+            <span>Atención Personalizada</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0f172a] leading-tight tracking-tight mb-6">
-            Get in Touch <br />
-            <span className="text-gradient italic font-serif">The Art of Personalized Care</span>
+            Ponte en Contacto <br />
+            <span className="text-gradient italic font-serif">El Arte de Cuidar tu Sonrisa</span>
           </h1>
 
           <p className="text-base sm:text-lg font-normal text-slate-800 leading-relaxed max-w-lg">
-            Experience dental care redefined. We invite you to begin your journey towards profound clinical excellence and serene aesthetics.
+            Experimenta una odontología diferente. Te invitamos a dar el primer paso hacia una excelencia clínica con la máxima comodidad y tranquilidad.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export const ContactHeroSection = () => {
           <div className="aspect-[4/3] sm:aspect-[16/10] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group relative">
             <img
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
-              alt="Serene luxury waiting sanctuary"
+              alt="Instalaciones de la clínica dental"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200';
@@ -72,7 +72,7 @@ export const ContactHeroSection = () => {
           <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-xl max-w-xs hidden sm:flex items-start gap-3">
             <Quote className="w-6 h-6 text-[#0ea5e9] shrink-0 mt-0.5" />
             <p className="text-xs font-serif italic text-[#0f172a] leading-relaxed">
-              "A sanctuary for your smile, where precision meets tranquility."
+              "Un espacio dedicado a tu bienestar, donde la precisión se une con la tranquilidad."
             </p>
           </div>
         </div>

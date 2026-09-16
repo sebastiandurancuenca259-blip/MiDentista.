@@ -1,5 +1,17 @@
 import React from 'react';
 
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.22V8.2a6.34 6.34 0 0 0-3.32.93 6.33 6.33 0 1 0 10.32 4.95V8.69a8.21 8.21 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.68-.08z"/>
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+);
+
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-2 stroke-round stroke-linejoin">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -8,49 +20,25 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const GithubIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-  </svg>
-);
-
-const LinkedinIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-  </svg>
-);
-
-const FiverrIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-    <path d="M14.5 7.5h2v9h-2v-9zm-10 9h2.2v-4.2h3.2v-1.8h-3.2v-1.2c0-.6.4-1 1-1h2.2v-1.8h-2.7c-1.8 0-2.5 1.1-2.5 2.4v1.6h-1.5v1.8h1.5v4.4zm10-10.8c-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2 1.2-.5 1.2-1.2-.5-1.2-1.2-1.2z" />
-  </svg>
-);
-
 export const Footer = () => {
-  const developerLinks = [
+  const socialLinks = [
+    {
+      name: 'TikTok',
+      url: 'https://www.tiktok.com/@dra_juanitacuenca',
+      icon: TikTokIcon,
+      color: 'hover:text-cyan-400',
+    },
+    {
+      name: 'Facebook',
+      url: 'https://www.facebook.com/satelitenorte.dentista.odontologia.ortodoncia',
+      icon: FacebookIcon,
+      color: 'hover:text-blue-500',
+    },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/_ashischetia_?igsh=MW1nZWFvczM1cXZvbw%3D%3D',
+      url: 'https://www.instagram.com/mi_dentista_clinica.dental/',
       icon: InstagramIcon,
       color: 'hover:text-pink-500',
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/AshisChetia',
-      icon: GithubIcon,
-      color: 'hover:text-white',
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/ashis-chetia-a981b1351/',
-      icon: LinkedinIcon,
-      color: 'hover:text-sky-400',
-    },
-    {
-      name: 'Fiverr',
-      url: 'https://www.fiverr.com/users/ashis_chetia/',
-      icon: FiverrIcon,
-      color: 'hover:text-emerald-400',
     },
   ];
 
@@ -66,16 +54,16 @@ export const Footer = () => {
               <path clipRule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fillRule="evenodd"/>
             </svg>
           </div>
-          <span className="font-serif font-bold text-xl text-white">DentaPremium</span>
+          <span className="font-serif font-bold text-xl text-white">MI DENTISTA</span>
         </div>
 
-        {/* Developer Contact Social Links */}
+        {/* Social Links */}
         <div className="flex flex-col items-center md:items-end gap-2">
           <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Designed & Developed by <span className="text-[#0ea5e9]">Ashis Chetia</span>
+            Síguenos en nuestras redes
           </span>
           <div className="flex items-center gap-4 pt-1">
-            {developerLinks.map((link) => {
+            {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
                 <a
@@ -98,7 +86,7 @@ export const Footer = () => {
 
       {/* Copyright Line */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-8 pt-6 border-t border-slate-800/60 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} DentaPremium Dental Clinic. All rights reserved.
+        © {new Date().getFullYear()} Clínica Dental MI DENTISTA. Todos los derechos reservados.
       </div>
     </footer>
   );

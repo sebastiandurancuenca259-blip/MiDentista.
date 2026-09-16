@@ -6,11 +6,9 @@ import Navbar from './components/UI/Navbar';
 import Footer from './components/UI/Footer';
 import HomePage from './Pages/HomePage';
 import ServicePage from './Pages/ServicePage';
-import AboutPage from './Pages/AboutPage';
-import TeamPage from './Pages/TeamPage';
-import ReviewsPage from './Pages/ReviewsPage';
 import ContactPage from './Pages/ContactPage';
-import BookingPage from './Pages/BookingPage'; // Importación de la vista de citas
+import BookingPage from './Pages/BookingPage';
+import AdminPage from './AdminPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,16 +65,12 @@ function App() {
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       
       {/* Active Page View */}
-      {currentPage === 'booking' ? (
+      {currentPage === 'admin' ? (
+        <AdminPage />
+      ) : currentPage === 'booking' ? (
         <BookingPage onNavigateToContact={handleNavigateToContact} />
       ) : currentPage === 'contact' ? (
         <ContactPage />
-      ) : currentPage === 'reviews' ? (
-        <ReviewsPage onNavigateToContact={handleNavigateToContact} />
-      ) : currentPage === 'team' ? (
-        <TeamPage onNavigateToContact={handleNavigateToContact} />
-      ) : currentPage === 'about' ? (
-        <AboutPage onNavigateToContact={handleNavigateToContact} />
       ) : currentPage === 'services' ? (
         <ServicePage onNavigateToContact={handleNavigateToContact} />
       ) : (
@@ -84,7 +78,7 @@ function App() {
       )}
 
       {/* Footer Component */}
-      <Footer onNavigateToContact={handleNavigateToContact} />
+      {currentPage !== 'admin' && <Footer onNavigateToContact={handleNavigateToContact} />}
     </div>
   );
 }

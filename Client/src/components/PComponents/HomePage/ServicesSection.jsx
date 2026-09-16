@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, Sparkles, Stethoscope, ShieldCheck, Smile, HeartPulse } from 'lucide-react';
+import { Sparkles, Stethoscope, ShieldCheck, Smile, HeartPulse } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -56,84 +56,84 @@ export const ServicesSection = () => {
       <div ref={headerRef} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 lg:mb-20 gap-4">
         <div className="inline-flex items-center gap-2">
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
-          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Areas of Expertise</span>
+          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Nuestros Servicios</span>
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-[#0f172a]">
-          Comprehensive Premium Care
+          Atención Dental Integral
         </h2>
         <p className="text-base sm:text-lg font-light text-[#64748b] leading-relaxed max-w-xl">
-          State-of-the-art dental treatments designed with architectural precision for optimal oral health and aesthetics.
+          Ofrecemos una amplia gama de tratamientos odontológicos con tecnología moderna y la calidez que tu familia merece.
         </p>
       </div>
 
       {/* Grid */}
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        {/* Service 1 */}
+        {/* Servicio 1 */}
         <div className="group rounded-3xl p-8 sm:p-10 bg-white border border-[#e2e8f0] shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 cursor-pointer flex flex-col h-full relative overflow-hidden transition-all duration-300">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0f172a] to-[#0ea5e9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           <div className="w-14 h-14 rounded-2xl bg-[#0f172a]/5 flex items-center justify-center mb-8 text-[#0f172a] group-hover:bg-[#0f172a] group-hover:text-white smooth-hover shadow-xs">
             <Sparkles className="w-7 h-7" />
           </div>
-          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Preventative Care</h3>
+          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Odontología General y Limpieza</h3>
           <p className="text-[#64748b] font-light leading-relaxed flex-grow">
-            Advanced hygiene treatments and comprehensive examinations to maintain your optimal oral health foundation.
+            Evaluación completa, tartrectomía (limpieza profunda), curaciones y tratamientos preventivos para mantener tus dientes sanos.
           </p>
         </div>
 
-        {/* Service 2 */}
+        {/* Servicio 2 */}
         <div className="group rounded-3xl p-8 sm:p-10 bg-white border border-[#e2e8f0] shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 cursor-pointer flex flex-col h-full relative overflow-hidden transition-all duration-300">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0f172a] to-[#0ea5e9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           <div className="w-14 h-14 rounded-2xl bg-[#0f172a]/5 flex items-center justify-center mb-8 text-[#0f172a] group-hover:bg-[#0f172a] group-hover:text-white smooth-hover shadow-xs">
             <Smile className="w-7 h-7" />
           </div>
-          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Smile Makeovers</h3>
+          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Ortodoncia y Brackets</h3>
           <p className="text-[#64748b] font-light leading-relaxed flex-grow">
-            Transformative aesthetic procedures combining multiple disciplines for a harmonious, radiant smile.
+            Corrección de la alineación dental y mordida con brackets estéticos y convencionales para niños, jóvenes y adultos.
           </p>
         </div>
 
-        {/* Service 3 */}
+        {/* Servicio 3 */}
         <div className="group rounded-3xl p-8 sm:p-10 bg-white border border-[#e2e8f0] shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 cursor-pointer flex flex-col h-full relative overflow-hidden transition-all duration-300">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0f172a] to-[#0ea5e9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           <div className="w-14 h-14 rounded-2xl bg-[#0f172a]/5 flex items-center justify-center mb-8 text-[#0f172a] group-hover:bg-[#0f172a] group-hover:text-white smooth-hover shadow-xs">
             <Stethoscope className="w-7 h-7" />
           </div>
-          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Dental Implants</h3>
+          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Prótesis y Rehabilitación</h3>
           <p className="text-[#64748b] font-light leading-relaxed flex-grow">
-            State-of-the-art restorative solutions providing permanent, natural-looking replacements for missing teeth.
+            Reconstrucción y reemplazo de piezas dentales dañadas o ausentes con prótesis fijas o removibles de alta durabilidad.
           </p>
         </div>
 
-        {/* Service 4 */}
+        {/* Servicio 4 */}
         <div className="group rounded-3xl p-8 sm:p-10 bg-white border border-[#e2e8f0] shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 cursor-pointer flex flex-col h-full relative overflow-hidden transition-all duration-300">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0f172a] to-[#0ea5e9] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           <div className="w-14 h-14 rounded-2xl bg-[#0f172a]/5 flex items-center justify-center mb-8 text-[#0f172a] group-hover:bg-[#0f172a] group-hover:text-white smooth-hover shadow-xs">
             <ShieldCheck className="w-7 h-7" />
           </div>
-          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Porcelain Veneers</h3>
+          <h3 className="text-xl font-serif font-semibold mb-4 text-[#0f172a]">Estética Dental</h3>
           <p className="text-[#64748b] font-light leading-relaxed flex-grow">
-            Ultra-thin, custom-crafted ceramic shells designed to perfect the shape, color, and alignment of your teeth.
+            Blanqueamiento dental, carillas y diseño de sonrisa para lucir una dentadura reluciente y natural.
           </p>
         </div>
 
-        {/* Service 5 (Wide card with HD image) */}
+        {/* Servicio 5 (Tarjeta Ancha) */}
         <div className="group rounded-3xl p-8 sm:p-10 lg:col-span-2 bg-gradient-to-br from-[#0f172a] via-[#003852] to-[#004666] text-white border-none shadow-xl overflow-hidden relative">
           <div className="flex flex-col md:flex-row gap-8 items-center h-full relative z-10">
             <div className="flex-1">
               <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 text-white shadow-inner">
                 <HeartPulse className="w-7 h-7 text-cyan-300" />
               </div>
-              <h3 className="text-2xl font-serif font-semibold mb-4">Sedation Dentistry</h3>
+              <h3 className="text-2xl font-serif font-semibold mb-4">Endodoncia y Cirugía Bucal</h3>
               <p className="text-white/80 font-light leading-relaxed max-w-md">
-                Experience anxiety-free treatments in a state of deep relaxation. Perfect for complex procedures or nervous patients, overseen by specialized anesthetists.
+                Tratamientos de conducto para salvar el diente de infecciones intensas y extracciones seguras con anestesia efectiva y alivio inmediato del dolor.
               </p>
             </div>
             
             <div className="flex-1 w-full h-56 md:h-full min-h-[220px] relative rounded-2xl overflow-hidden shadow-lg border border-white/10">
               <img 
-                alt="Relaxed patient environment" 
+                alt="Atención médica profesional" 
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-hover duration-700 opacity-80" 
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200"
               />

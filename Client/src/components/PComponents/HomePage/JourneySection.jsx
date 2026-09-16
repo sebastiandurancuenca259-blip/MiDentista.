@@ -4,26 +4,26 @@ export const JourneySection = () => {
   const steps = [
     {
       num: "01",
-      title: "Consultation",
-      desc: "Comprehensive discussion of your goals, medical history, and a detailed examination using 3D digital imaging.",
+      title: "Consulta Inicial",
+      desc: "Evaluación clínica detallada para conocer tus necesidades dentales y planificar la mejor atención.",
       offset: false
     },
     {
       num: "02",
-      title: "Planning",
-      desc: "Bespoke treatment design utilizing digital smile architecture to preview your final aesthetic results.",
+      title: "Diagnóstico con Rayos X",
+      desc: "Toma de imágenes radiográficas inmediatas en el consultorio para determinar un diagnóstico exacto.",
       offset: true
     },
     {
       num: "03",
-      title: "Treatment",
-      desc: "Gentle execution in our private clinical suites, utilizing world-class ceramic materials and painless techniques.",
+      title: "Tratamiento Personalizado",
+      desc: "Procedimientos realizados con técnicas modernas, máximo cuidado e higiene para tu total tranquilidad.",
       offset: false
     },
     {
       num: "04",
-      title: "Follow-up",
-      desc: "Ongoing preventative maintenance and post-care programs to ensure long-lasting oral health and brilliance.",
+      title: "Control y Seguimiento",
+      desc: "Revisiones periódicas de mantenimiento para garantizar resultados duraderos en tu salud bucal.",
       offset: true
     }
   ];
@@ -36,14 +36,14 @@ export const JourneySection = () => {
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 lg:mb-20 gap-4">
           <div className="inline-flex items-center gap-2">
             <span className="w-8 h-px bg-[#0ea5e9]"></span>
-            <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">The Patient Journey</span>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Tu Atención Paso a Paso</span>
             <span className="w-8 h-px bg-[#0ea5e9]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-[#0f172a]">
-            Step-by-Step Excellence
+            ¿Cómo trabajamos en tu consulta?
           </h2>
           <p className="text-base sm:text-lg font-light text-[#64748b] leading-relaxed max-w-xl">
-            A seamless, transparent treatment roadmap designed around your comfort and individual desires.
+            Un proceso claro y transparente diseñado para tu comodidad y la salud dental de toda tu familia.
           </p>
         </div>
 

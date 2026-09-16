@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Camera, FileText, Smile, ShieldCheck } from 'lucide-react';
+import { CalendarCheck, Stethoscope, HeartHandshake, ShieldCheck } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -52,27 +52,27 @@ export const TreatmentProcessSection = () => {
   const steps = [
     {
       number: '01',
-      icon: Camera,
-      title: 'Digital Consultation & 3D Scan',
-      description: 'Your journey begins with high-definition intraoral 3D scanning and photography to capture every detail of your oral anatomy painless and fast.',
+      icon: CalendarCheck,
+      title: 'Consulta y Evaluación Inicial',
+      description: 'Revisión clínica completa e historial del paciente para diagnosticar de forma precisa el estado de tu salud bucal.',
     },
     {
       number: '02',
-      icon: FileText,
-      title: 'Personalized Treatment Plan',
-      description: 'Our specialists review your digital data to craft a clear treatment roadmap complete with 3D smile preview and transparent cost breakdown.',
+      icon: Stethoscope,
+      title: 'Plan de Tratamiento Claro',
+      description: 'Explicación detallada de las opciones (ortodoncia, prótesis, endodoncia, etc.) con costos transparentes y etapas del proceso.',
     },
     {
       number: '03',
-      icon: Smile,
-      title: 'Painless Gentle Procedure',
-      description: 'Experience anxiety-free treatment utilizing targeted local anesthesia or sedation, micro-laser precision, and maximum clinical comfort.',
+      icon: HeartHandshake,
+      title: 'Procedimiento Cómodo y Humano',
+      description: 'Atención profesional enfocada en minimizar molestias, utilizando anestesia local precisa y técnicas cuidadosas.',
     },
     {
       number: '04',
       icon: ShieldCheck,
-      title: 'Aftercare & Guarantee',
-      description: 'We provide structured post-care guidance, check-up scheduling, and comprehensive warranties on crowns, veneers, and implant restorations.',
+      title: 'Seguimiento y Cuidado',
+      description: 'Indicaciones post-tratamiento claras y citas de control programadas para asegurar el éxito y durabilidad de los resultados.',
     },
   ];
 
@@ -83,14 +83,14 @@ export const TreatmentProcessSection = () => {
       <div ref={headerRef} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
-          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Seamless Experience</span>
+          <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Proceso Transparente</span>
           <span className="w-8 h-px bg-[#0ea5e9]"></span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-4">
-          How Your Care Unfolds
+          ¿Cómo es tu Atención Dental?
         </h2>
         <p className="text-base sm:text-lg font-light text-[#64748b] leading-relaxed">
-          Four structured steps designed to ensure maximum clarity, absolute comfort, and world-class aesthetic outcomes.
+          Cuatro pasos sencillos diseñados para garantizar un trato cercano, transparencia en cada procedimiento y resultados duraderos.
         </p>
       </div>
 

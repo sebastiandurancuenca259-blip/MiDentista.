@@ -4,30 +4,37 @@ import { ChevronDown, HelpCircle, PhoneCall } from 'lucide-react';
 export const ServiceFAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
+  // Número oficial del consultorio y mensaje listo para enviar
+  const whatsappNumber = '59178410535'; 
+  const defaultMessage = encodeURIComponent(
+    '¡Hola! Vi sus servicios en la página web y me gustaría recibir información sobre los tratamientos y disponibilidad de citas. ¡Gracias!'
+  );
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
+
   const faqs = [
     {
-      question: 'Are treatments at DentaPremium pain-free?',
-      answer: 'Yes! Patient comfort is our highest priority. We use targeted needleless micro-anesthesia, computerized delivery systems, laser dentistry, and nitrous or IV sedation for anxious patients, ensuring a calm, painless experience.',
+      question: '¿Los tratamientos dentales causan dolor?',
+      answer: 'Para nada. Tu comodidad es nuestra prioridad. Aplicamos anestesia local suave y nos tomamos el tiempo necesario para asegurarnos de que no sientas ninguna molestia durante el procedimiento.',
     },
     {
-      question: 'How long do porcelain veneers and dental implants last?',
-      answer: 'With proper oral hygiene and regular check-ups, dental implants can last a lifetime, holding a 99%+ success rate. High-grade custom porcelain veneers typically last 15 to 20+ years.',
+      question: '¿Qué hago si tengo una urgencia dental o un dolor fuerte?',
+      answer: 'Atendemos urgencias de manera prioritaria. Si presentas un dolor agudo, una restauración rota o un golpe, contáctanos de inmediato para darte un espacio el mismo día.',
     },
     {
-      question: 'What sedation dentistry options do you offer for anxious patients?',
-      answer: 'We provide nitrous oxide (laughing gas), oral conscious sedation pills, and full Intravenous (IV) sleep sedation administered by board-certified dental anesthetists so you can sleep comfortably throughout your care.',
+      question: '¿Atienden a niños y adultos?',
+      answer: 'Sí, brindamos atención odontológica integral para toda la familia, desde revisiones y limpiezas infantiles hasta tratamientos de restauración para adultos.',
     },
     {
-      question: 'How does Digital Smile Design (DSD) work?',
-      answer: 'DSD uses high-resolution digital intraoral 3D scanners and facial aesthetic software to simulate your new smile on screen before treatment begins, allowing you to preview and approve your results.',
+      question: '¿Cómo puedo agendar una cita de evaluación?',
+      answer: 'Puedes solicitar tu cita directamente a través del formulario de este sitio web o enviándonos un mensaje por WhatsApp. Te responderemos a la brevedad para coordinar el horario que mejor te convenga.',
     },
     {
-      question: 'Do you offer emergency dental appointments?',
-      answer: 'Yes, we maintain priority emergency slots daily for severe toothaches, knocked-out teeth, trauma, or broken restorations. Call our emergency helpline for immediate same-day relief.',
+      question: '¿Qué formas de pago aceptan?',
+      answer: 'Aceptamos pagos en efectivo y transferencias bancarias. Además, coordinamos facilidades de pago según el plan de tratamiento que necesites.',
     },
     {
-      question: 'What payment and financing options are available?',
-      answer: 'We accept major health insurance plans and offer flexible, 0% interest monthly payment plans so you can receive world-class care comfortably within your budget.',
+      question: '¿Cada cuánto tiempo debo hacerme una limpieza dental?',
+      answer: 'Lo recomendable es realizar una limpieza profesional y revisión general cada 6 meses para prevenir la acumulación de sarro, caries y mantener tus encías totalmente saludables.',
     },
   ];
 
@@ -39,14 +46,14 @@ export const ServiceFAQSection = () => {
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-8 h-px bg-[#0ea5e9]"></span>
-            <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Common Inquiries</span>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#0ea5e9]">Resolvemos tus dudas</span>
             <span className="w-8 h-px bg-[#0ea5e9]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0f172a] mb-4">
-            Frequently Asked Questions
+            Preguntas Frecuentes
           </h2>
           <p className="text-base sm:text-lg font-light text-[#64748b]">
-            Everything you need to know about our specialized clinical procedures and patient care.
+            Todo lo que necesitas saber antes de tu consulta y sobre nuestros procedimientos clínicos.
           </p>
         </div>
 
@@ -86,21 +93,24 @@ export const ServiceFAQSection = () => {
         </div>
 
         {/* Need More Assistance Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center shrink-0">
               <PhoneCall className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-serif font-bold text-[#0f172a]">Have additional questions?</h4>
-              <p className="text-xs text-[#64748b]">Our patient care team is available to assist you 24/7.</p>
+              <h4 className="font-serif font-bold text-[#0f172a]">¿Tienes alguna otra consulta?</h4>
+              <p className="text-xs text-[#64748b]">Estamos disponibles para orientarte y agendar tu hora al instante.</p>
             </div>
           </div>
-          <div
-            className="px-6 py-3 rounded-xl bg-[#0f172a] text-white text-xs font-bold uppercase tracking-wider cursor-default select-none shrink-0"
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 shadow-sm hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
           >
-            Call (800) 555-DENTA
-          </div>
+            Contactar por WhatsApp
+          </a>
         </div>
 
       </div>

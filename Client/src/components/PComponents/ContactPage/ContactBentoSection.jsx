@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { MapPin, Video, ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { MapPin, Clock, Mail, ExternalLink } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,13 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const ContactBentoSection = () => {
   const sectionRef = useRef(null);
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    email: '',
-    interest: 'Aesthetic Consultation',
-  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -36,187 +29,104 @@ export const ContactBentoSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        interest: 'Aesthetic Consultation',
-      });
-    }, 4000);
-  };
-
   return (
     <section ref={sectionRef} className="py-16 lg:py-24 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
-        {/* Concierge Inquiry Form (7 Cols) */}
-        <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0f172a] mb-2">
-              Begin Your Journey
-            </h2>
-            <p className="text-base font-normal text-slate-800 mb-8">
-              Submit a concierge inquiry for tailored care.
-            </p>
-
-            {submitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl p-6 flex items-start gap-4 mb-6">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-base mb-1">Inquiry Received</h4>
-                  <p className="text-sm">
-                    Thank you for reaching out to DentaPremium. Our concierge care team will contact you within 24 hours to finalize your consultation.
-                  </p>
-                </div>
+        {/* Contenedor Principal del Mapa (7 Cols) */}
+        <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between min-h-[480px]">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center">
+                <MapPin className="w-5 h-5" />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name & Phone Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
-                    />
-                  </div>
+              <div>
+                <h3 className="text-xl font-serif font-bold text-[#0f172a]">
+                  Ubicación del Consultorio
+                </h3>
+                <p className="text-xs font-medium text-slate-500">
+                  Satélite Norte - Mi Dentista Clínica Dental
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://maps.app.goo.gl/vK6uyptKRcyDkSkv8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs font-bold text-[#0ea5e9] hover:underline bg-[#0ea5e9]/10 px-3 py-2 rounded-xl transition-all shrink-0"
+            >
+              <span>Abrir en Google Maps</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
 
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
-                    />
-                  </div>
-                </div>
-
-                {/* Email Field */}
-                <div className="flex flex-col">
-                  <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none"
-                  />
-                </div>
-
-                {/* Select Field */}
-                <div className="flex flex-col">
-                  <label className="text-xs font-bold tracking-widest uppercase text-slate-700 mb-2">
-                    Area of Interest
-                  </label>
-                  <select
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-base font-normal text-[#0f172a] focus:border-[#0ea5e9] focus:bg-white focus:ring-2 focus:ring-[#0ea5e9]/20 transition-all outline-none cursor-pointer"
-                  >
-                    <option value="Aesthetic Consultation">Aesthetic Consultation</option>
-                    <option value="Restorative Care">Restorative Care</option>
-                    <option value="Routine Wellness">Routine Wellness</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="bg-[#0f172a] text-white w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-[#0ea5e9] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95 cursor-pointer mt-4"
-                >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-            )}
+          {/* Mapa Interactivo con la ubicación exacta */}
+          <div className="w-full h-full min-h-[360px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+            <iframe
+              title="Mi Dentista Clínica Dental"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.5081946798937!2d-63.138441799999995!3d-17.6031931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e172d17ab2bf%3A0x771397dd048b78d0!2sMi%20Dentista%20Cl%C3%ADnica%20Dental!5e1!3m2!1ses!2sbo!4v1789592894259!5m2!1ses!2sbo"
+              className="w-full h-full border-0"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            ></iframe>
           </div>
         </div>
 
-        {/* Info Stack (5 Cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
+        {/* Tarjetas de Información: Horarios y Contacto (5 Cols) */}
+        <div className="lg:col-span-5 flex flex-col justify-between gap-6">
           
-          {/* Sanctuary Location Card */}
-          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-[#0f172a]">
-                  Visit the Sanctuary
-                </h3>
-              </div>
-
-              {/* Location Image Banner */}
-              <div className="mb-6 rounded-2xl overflow-hidden h-36 border border-slate-200">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
-                  alt="New York Metropolis Clinic Location"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800';
-                  }}
-                  className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
-
-              <address className="not-italic text-base font-normal text-slate-800 leading-relaxed mb-6">
-                1200 Serenity Boulevard <br />
-                Suite 400 <br />
-                Metropolis, NY 10001
-              </address>
-            </div>
-
-            <div className="pt-4 border-t border-slate-100">
-              <p className="text-xs font-bold tracking-widest uppercase text-[#0f172a] mb-1">
-                Hours of Operation
-              </p>
-              <p className="text-sm font-normal text-slate-700">
-                Mon - Fri: 8:00 AM – 6:00 PM <br />
-                Sat - Sun: Closed
-              </p>
-            </div>
-          </div>
-
-          {/* Virtual Consultation Card */}
-          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
-            <div className="flex items-center gap-3 mb-4">
+          {/* Horario de Atención */}
+          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex-1 flex flex-col justify-center">
+            <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center">
-                <Video className="w-5 h-5" />
+                <Clock className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-serif font-bold text-[#0f172a]">
-                Virtual Consultation
+                Horarios de Atención
               </h3>
             </div>
 
-            <p className="text-base font-normal text-slate-800 leading-relaxed mb-4">
-              Connect with our specialists from the comfort of your home. Ideal for preliminary aesthetic assessments.
+            <div className="space-y-4 text-slate-700">
+              <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span className="text-sm font-semibold text-[#0f172a]">Lunes a Viernes</span>
+                <span className="text-sm font-medium text-slate-600">08:00 – 18:00</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span className="text-sm font-semibold text-[#0f172a]">Sábados</span>
+                <span className="text-sm font-medium text-slate-600">08:00 – 12:00</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-semibold text-[#0f172a]">Domingos y Feriados</span>
+                <span className="text-xs font-bold text-rose-500 uppercase tracking-wider">Cerrado</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Contacto Directo */}
+          <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex-1 flex flex-col justify-center">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center">
+                <Mail className="w-5 h-5" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0f172a]">
+                Contacto
+              </h3>
+            </div>
+
+            <p className="text-sm font-normal text-slate-600 leading-relaxed mb-4">
+              Escríbenos directamente para resolver cualquier duda o consulta sobre nuestros servicios.
             </p>
 
-            <a
-              href="#booking"
-              className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-[#0ea5e9] hover:text-[#0f172a] transition-colors"
-            >
-              <span>Learn More</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+              <Mail className="w-5 h-5 text-[#0ea5e9] shrink-0" />
+              <a
+                href="mailto:midentista114@gmail.com"
+                className="text-sm font-semibold text-[#0f172a] hover:text-[#0ea5e9] transition-colors break-all"
+              >
+                midentista114@gmail.com
+              </a>
+            </div>
           </div>
 
         </div>

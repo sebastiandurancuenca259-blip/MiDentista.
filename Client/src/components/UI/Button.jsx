@@ -1,14 +1,14 @@
 import React from 'react';
 
 /**
- * Reusable Button UI Component based on Design System
+ * Componente UI de Botón reutilizable basado en el Sistema de Diseño
  * 
- * Variants:
- * - primary: Dark primary background with white text
- * - secondary: Soft surface background with dark text
- * - inverted: Inverted dark background with white text
- * - outlined: Outlined border with transparent background
- * - danger/emergency: Red error container variant
+ * Variantes:
+ * - primary: Fondo primario oscuro con texto blanco
+ * - secondary: Fondo suave con texto oscuro
+ * - inverted: Fondo oscuro invertido con texto blanco
+ * - outlined: Borde delineado con fondo transparente
+ * - danger/emergency: Variante de contenedor rojo para errores/emergencias
  */
 export const Button = ({
   children,

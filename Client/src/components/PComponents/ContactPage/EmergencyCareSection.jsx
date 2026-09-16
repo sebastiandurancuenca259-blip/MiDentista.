@@ -42,26 +42,27 @@ export const EmergencyCareSection = () => {
           <div className="inline-flex items-center justify-center lg:justify-start gap-2 mb-4 text-red-400">
             <AlertCircle className="w-5 h-5 fill-red-500/20 text-red-400" />
             <span className="text-xs font-bold tracking-widest uppercase text-red-400">
-              Urgent Needs
+              Atención Urgente
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">
-            Emergency Care
+            Urgencias Dentales
           </h2>
 
           <p className="text-base sm:text-lg font-normal text-slate-200 leading-relaxed">
-            Severe pain or trauma requires immediate attention. We reserve specialized time slots daily for critical care. Please do not use the contact form for emergency situations.
+            Un dolor agudo o un traumatismo requieren atención inmediata. Reservamos espacios de tiempo diariamente para emergencias. Por favor, contáctanos directamente por teléfono en lugar del formulario.
           </p>
         </div>
 
         <div className="relative z-10 shrink-0">
-          <div
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white text-[#0f172a] font-bold text-xs uppercase tracking-widest cursor-default select-none shadow-xl whitespace-nowrap"
+          <a
+            href="tel:+59178410535" // Cambia este número por el teléfono real o enlace a WhatsApp
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white text-[#0f172a] font-bold text-xs uppercase tracking-widest hover:bg-[#0ea5e9] hover:text-white transition-all shadow-xl whitespace-nowrap cursor-pointer"
           >
             <PhoneCall className="w-4 h-4" />
-            <span>Call Emergency Line</span>
-          </div>
+            <span>Llamar a Urgencias</span>
+          </a>
         </div>
       </div>
     </section>
