@@ -83,7 +83,7 @@ export const PhilosophySection = () => {
             {/* Experience Pill Overlay */}
             <div className="absolute bottom-6 left-6 right-6 glass-dark p-4 rounded-2xl border border-white/20 text-white flex items-center justify-between">
               <div>
-                <p className="font-serif text-lg font-bold">PENE</p>
+                <p className="font-serif text-lg font-bold">MI DENTISTA</p>
                 <p className="text-xs text-cyan-300">Clínica Dental Especializada</p>
               </div>
               <span className="bg-[#0ea5e9] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
