@@ -76,7 +76,7 @@ export const PhilosophySection = () => {
             <img 
               alt="Atención odontológica en Mi Dentista" 
               className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" 
-              src="https://scontent.fvvi1-1.fna.fbcdn.net/v/t39.30808-6/501995186_1161117672695144_1540277273368285262_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s1080x1920&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=BIiFxefeCfwQ7kNvwFQFttP&_nc_oc=Adrq5pAcgRxjxMY4IbrF7TT_OvDA6clZQ-E_PDPMyZ7Rtyk4y43i5a3YPKqBflvhFSgQ9I0W1FAZEFVrrLg4XHTH&_nc_zt=23&_nc_ht=scontent.fvvi1-1.fna&_nc_gid=bScq32-W_efx7wr-1rjxsw&_nc_ss=7b2a8&oh=00_AQI3uphFw4eufGTggTx-wFOIGYSfZjFuqfrOmmVQ7_jXhA&oe=6AB0D454"
+              src="https://scontent.fvvi1-1.fna.fbcdn.net/v/t39.30808-6/501995186_1161117672695144_1540277273368285262_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s1080x1920&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=MaYVZ1eteGgQ7kNvwHaLPn8&_nc_oc=AdopIyU5dPGcAOx-T0SlHZa439GCQ1S3PulDaaRK4aS7U-dlgsNrM-ipbpxVjQ-GAIZpPzr5mnzfdRNH8otV05GS&_nc_zt=23&_nc_ht=scontent.fvvi1-1.fna&_nc_gid=Gvc6YLLVC3KKdWzQQeHO5A&_nc_ss=7b2a8&oh=00_AQIbfVqBPDFkBCGxw6Wg4HcQnfNlXZ2qu2Asc18cmABNEQ&oe=6ABA0ED4"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/40 via-transparent to-transparent"></div>
             
