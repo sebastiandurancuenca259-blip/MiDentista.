@@ -80,7 +80,7 @@ export const HeroSection = () => {
 
           {/* Heading */}
           <h1 ref={headingRef} className="text-5xl md:text-6xl lg:text-[5rem] font-serif font-medium leading-[1.1] tracking-tight text-[#0f172a]">
-            Un mundo de <br />
+            hola mundo<br />
             <span className="text-gradient italic font-serif">sonrisas saludables</span>
           </h1>
 

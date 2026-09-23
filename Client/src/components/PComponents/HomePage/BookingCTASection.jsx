@@ -30,7 +30,6 @@ export const BookingCTASection = () => {
     const { data, error } = await supabase
       .from('citas')
       .insert([formData]);
-
     setLoading(false);
 
     if (error) {
