@@ -1,9 +1,10 @@
-import React from 'react';
-import ContactHeroSection from '../components/PComponents/ContactPage/ContactHeroSection';
-import ContactBentoSection from '../components/PComponents/ContactPage/ContactBentoSection';
-import EmergencyCareSection from '../components/PComponents/ContactPage/EmergencyCareSection';
+import ContactHeroSection from '../components/sections/contact/ContactHeroSection';
+import ContactBentoSection from '../components/sections/contact/ContactBentoSection';
+import EmergencyCareSection from '../components/sections/contact/EmergencyCareSection';
+import useTituloPagina from '../hooks/useTituloPagina';
 
-export const ContactPage = () => {
+export default function ContactPage() {
+  useTituloPagina('Contacto, Ubicación y Horarios');
   return (
     <main className="w-full relative z-20 bg-white flex flex-col">
       <ContactHeroSection />
@@ -11,6 +12,4 @@ export const ContactPage = () => {
       <EmergencyCareSection />
     </main>
   );
-};
-
-export default ContactPage;
+}

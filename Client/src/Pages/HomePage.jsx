@@ -1,14 +1,15 @@
-import React from 'react';
-import HeroSection from '../components/PComponents/HomePage/HeroSection';
-import PhilosophySection from '../components/PComponents/HomePage/PhilosophySection';
-import StatsSection from '../components/PComponents/HomePage/StatsSection';
-import ServicesSection from '../components/PComponents/HomePage/ServicesSection';
-import JourneySection from '../components/PComponents/HomePage/JourneySection';
-import EnvironmentSection from '../components/PComponents/HomePage/EnvironmentSection';
-import TestimonialsSection from '../components/PComponents/HomePage/TestimonialsSection';
-import BookingCTASection from '../components/PComponents/HomePage/BookingCTASection';
+import HeroSection from '../components/sections/home/HeroSection';
+import PhilosophySection from '../components/sections/home/PhilosophySection';
+import StatsSection from '../components/sections/home/StatsSection';
+import ServicesSection from '../components/sections/home/ServicesSection';
+import JourneySection from '../components/sections/home/JourneySection';
+import EnvironmentSection from '../components/sections/home/EnvironmentSection';
+import TestimonialsSection from '../components/sections/home/TestimonialsSection';
+import BookingCTASection from '../components/sections/home/BookingCTASection';
+import useTituloPagina from '../hooks/useTituloPagina';
 
-export const HomePage = () => {
+export default function HomePage() {
+  useTituloPagina();
   return (
     <main className="w-full relative z-20 bg-white flex flex-col">
       <HeroSection />
@@ -21,6 +22,4 @@ export const HomePage = () => {
       <BookingCTASection />
     </main>
   );
-};
-
-export default HomePage;
+}
