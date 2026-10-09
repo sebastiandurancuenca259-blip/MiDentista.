@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#0f172a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Open Graph / Redes Sociales -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_BO" />
     <meta property="og:site_name" content="Mi Dentista" />
@@ -20,16 +21,634 @@
       content="Atención odontológica integral para niños y adultos. Reserva tu cita en línea en pocos pasos."
     />
 
+    <!-- Tipografías de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Datos estructurados Schema.org para Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Mi Dentista Clínica Dental",
+        "telephone": "+59178410535",
+        "email": "midentista114@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Satélite Norte",
+          "addressLocality": "Warnes",
+          "addressRegion": "Santa Cruz",
+          "addressCountry": "BO"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -17.6031931,
+          "longitude": -63.1384418
+        },
+        "hasMap": "https://maps.app.goo.gl/vK6uyptKRcyDkSkv8",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "12:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "14:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "12:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.tiktok.com/@dra_juanitacuenca",
+          "https://www.facebook.com/satelitenorte.dentista.odontologia.ortodoncia",
+          "https://www.instagram.com/mi_dentista_clinica.dental/"
+        ]
+      }
+    </script>
   </head>
-  <body>
-    <noscript>Este sitio necesita JavaScript. Para agendar una cita escríbenos por WhatsApp al +591 78410535.</noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body class="min-h-screen bg-white text-ink font-sans antialiased flex flex-col selection:bg-brand selection:text-white">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Barra de Navegación -->
+    <div id="navbar-container"></div>
+
+    <!-- Contenido Principal -->
+    <main id="contenido" tabindex="-1" class="flex-1 flex flex-col outline-none w-full relative z-20 bg-white">
+      
+      <!-- 1. HERO SECTION -->
+      <section id="hero-section" class="relative min-h-[85vh] flex items-center pt-6 md:pt-10 pb-16 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0">
+          <img
+            alt=""
+            class="hero-bg-img w-full h-full object-cover origin-center"
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/40 lg:to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+        </div>
+
+        <div class="w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4 md:pt-6">
+          <div class="lg:col-span-7 flex flex-col gap-8 text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold uppercase tracking-widest w-fit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span>Atención Odontológica Integral</span>
+            </div>
+
+            <h1 class="hero-heading text-5xl md:text-6xl lg:text-[5rem] font-serif font-medium leading-[1.1] tracking-tight text-ink">
+              Un mundo de
+              <br />
+              <span class="text-gradient italic font-serif">sonrisas saludables</span>
+            </h1>
+
+            <p class="hero-subtitle text-lg md:text-xl font-light text-muted leading-relaxed max-w-2xl">
+              Cuidamos la salud bucal de toda tu familia con atención profesional en niños y adultos. Tratamientos
+              planificados con diagnósticos precisos mediante Rayos X.
+            </p>
+
+            <div class="hero-cta flex flex-wrap gap-5 mt-2">
+              <a
+                href="/agendar.html"
+                class="flex items-center justify-center rounded-full h-14 px-10 bg-ink text-white text-sm font-semibold tracking-widest uppercase smooth-hover hover:bg-brand shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Agendar Cita
+              </a>
+
+              <a
+                href="https://wa.me/59178410535?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center rounded-full h-14 px-8 bg-slate-100/80 backdrop-blur-md text-ink border border-slate-200 text-sm font-semibold tracking-widest uppercase hover:bg-slate-200 transition-all shadow-xs"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-3 w-4 h-4 text-brand" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+591 78410535</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-floating-card lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="w-full max-w-md bg-white/85 backdrop-blur-xl p-8 rounded-3xl border border-white/60 shadow-2xl space-y-6 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-brand/10 rounded-full blur-2xl pointer-events-none"></div>
+
+              <div class="flex items-center gap-4 border-b border-slate-100 pb-5">
+                <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-brand" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                  <h2 class="font-serif font-bold text-lg text-ink">Especialidades Odontológicas</h2>
+                  <p class="text-xs text-muted">Tratamientos planificados a tu medida</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex gap-3 items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <div>
+                    <h3 class="text-sm font-bold text-ink">Ortodoncia y Ortopedia</h3>
+                    <p class="text-xs text-muted">Alineación y desarrollo dentofacial para niños y adultos.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3 items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <div>
+                    <h3 class="text-sm font-bold text-ink">Cirugía y Endodoncia</h3>
+                    <p class="text-xs text-muted">Extracción de terceros molares y conservación de piezas dañadas.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3 items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <div>
+                    <h3 class="text-sm font-bold text-ink">Prótesis y Estética Dental</h3>
+                    <p class="text-xs text-muted">Prótesis fijas, flexibles, removibles, blanqueamiento y restauraciones.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-muted">
+                <span>Warnes · Satélite Norte</span>
+                <a href="/servicios.html" class="text-brand font-bold uppercase tracking-wider hover:underline">Ver catálogo →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PHILOSOPHY SECTION -->
+      <section id="philosophy" class="py-24 lg:py-32 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto space-y-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div class="phil-left-col order-2 lg:order-1 relative">
+            <div class="aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative border border-slate-100">
+              <img
+                alt="Odontóloga de Mi Dentista atendiendo a una niña en el consultorio"
+                class="w-full h-full object-cover object-[center_40%] hover:scale-105 transition-transform duration-700"
+                src="/src/assets/clinica/atencion-consultorio.jpg"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 glass-dark p-4 rounded-2xl border border-white/20 text-white flex items-center justify-between">
+                <div>
+                  <p class="font-serif text-lg font-bold">MI DENTISTA</p>
+                  <p class="text-xs text-cyan-300">Clínica Dental Especializada</p>
+                </div>
+                <span class="bg-brand text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  Atención Ética
+                </span>
+              </div>
+            </div>
+            <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-brand/10 rounded-full blur-3xl -z-10"></div>
+          </div>
+
+          <div class="phil-right-col order-1 lg:order-2 flex flex-col gap-6 text-left">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-8 h-px bg-brand"></span>
+              <span class="text-xs font-bold tracking-widest uppercase text-brand">Nuestra Filosofía</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-ink">
+              Salud y estética dental al alcance de tu familia
+            </h2>
+
+            <p class="text-base sm:text-lg font-light text-muted leading-relaxed">
+              En Mi Dentista, creemos que una sonrisa sana es fundamental para el bienestar de cada persona. Nos enfocamos en ofrecer una atención cercana, honesta y accesible, priorizando la prevención y el cuidado integral de tu salud bucal.
+            </p>
+
+            <p class="text-base sm:text-lg font-light text-muted leading-relaxed">
+              Cada tratamiento es planificado de forma personalizada, aplicando procedimientos seguros y con estrictas normas de bioseguridad para garantizar tu máxima comodidad.
+            </p>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="font-serif italic text-2xl text-ink font-medium tracking-wide">
+                  Mi Dentista
+                </p>
+                <p class="text-xs font-semibold tracking-widest uppercase text-muted mt-1">
+                  Compromiso con tu Sonrisa
+                </p>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <p class="text-xs font-bold text-ink">Atención Integral</p>
+                  <p class="text-[11px] text-muted">Niños y Adultos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phil-cards grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-100">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-xs hover:shadow-md transition-shadow flex items-center gap-4 text-left">
+            <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-brand" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Trato Humano y Ético</p>
+              <p class="text-xs text-muted">Atención cercana y personalizada</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-xs hover:shadow-md transition-shadow flex items-center gap-4 text-left">
+            <div class="w-12 h-12 rounded-xl bg-ink/10 text-ink flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-ink" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Tratamientos Cómodos</p>
+              <p class="text-xs text-muted">Técnicas suaves e higiénicas</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-xs hover:shadow-md transition-shadow flex items-center gap-4 text-left">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-emerald-600" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-ink">Atención de Urgencias</p>
+              <p class="text-xs text-muted">Disponibilidad según necesidad</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. STATS SECTION -->
+      <section class="border-y border-line/30 bg-slate-50/30">
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-10 lg:px-20 xl:px-40 py-16">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 divide-x-0 md:divide-x divide-line/30">
+            <div class="flex flex-col items-center text-center px-4 group">
+              <p class="text-3xl md:text-4xl font-serif font-medium text-ink group-hover:text-brand smooth-hover mb-2">Familia</p>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Atención Niños y Adultos</p>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 group">
+              <p class="text-3xl md:text-4xl font-serif font-medium text-ink group-hover:text-brand smooth-hover mb-2">100%</p>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Higiene y Bioseguridad</p>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 group">
+              <p class="text-3xl md:text-4xl font-serif font-medium text-ink group-hover:text-brand smooth-hover mb-2">Rayos X</p>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Diagnóstico Inmediato</p>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 group">
+              <p class="text-3xl md:text-4xl font-serif font-medium text-ink group-hover:text-brand smooth-hover mb-2">Urgencias</p>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Atención Disponible</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SERVICES SECTION -->
+      <section id="services" class="py-24 lg:py-32 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto">
+        <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 lg:mb-20 gap-4">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-8 h-px bg-brand"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-brand">Nuestros Servicios</span>
+            <span class="w-8 h-px bg-brand"></span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-ink">Atención Dental Integral</h2>
+          <p class="text-base sm:text-lg font-light text-muted leading-relaxed max-w-xl">
+            Ofrecemos una amplia gama de tratamientos odontológicos con tecnología moderna y la calidez que tu familia merece.
+          </p>
+        </div>
+
+        <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Tarjeta 1: Odontología General -->
+          <a
+            href="/servicios.html?categoria=general#catalogo"
+            class="group rounded-3xl p-8 sm:p-10 bg-white border border-line shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 flex flex-col h-full relative overflow-hidden transition-all duration-300"
+          >
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ink to-brand transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            <div class="w-14 h-14 rounded-2xl bg-ink/5 flex items-center justify-center mb-8 text-ink group-hover:bg-ink group-hover:text-white smooth-hover shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            </div>
+            <h3 class="text-xl font-serif font-semibold mb-4 text-ink">Odontología General y Limpieza</h3>
+            <p class="text-muted font-light leading-relaxed flex-grow">
+              Evaluación completa, tartrectomía (limpieza profunda), curaciones y tratamientos preventivos para mantener tus dientes sanos.
+            </p>
+            <span class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand">
+              Ver tratamientos
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Tarjeta 2: Ortodoncia -->
+          <a
+            href="/servicios.html?categoria=ortodoncia#catalogo"
+            class="group rounded-3xl p-8 sm:p-10 bg-white border border-line shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 flex flex-col h-full relative overflow-hidden transition-all duration-300"
+          >
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ink to-brand transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            <div class="w-14 h-14 rounded-2xl bg-ink/5 flex items-center justify-center mb-8 text-ink group-hover:bg-ink group-hover:text-white smooth-hover shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+            </div>
+            <h3 class="text-xl font-serif font-semibold mb-4 text-ink">Ortodoncia y Brackets</h3>
+            <p class="text-muted font-light leading-relaxed flex-grow">
+              Corrección de la alineación dental y mordida con brackets estéticos y convencionales para niños, jóvenes y adultos.
+            </p>
+            <span class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand">
+              Ver tratamientos
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Tarjeta 3: Prótesis -->
+          <a
+            href="/servicios.html?categoria=protesis#catalogo"
+            class="group rounded-3xl p-8 sm:p-10 bg-white border border-line shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 flex flex-col h-full relative overflow-hidden transition-all duration-300"
+          >
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ink to-brand transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            <div class="w-14 h-14 rounded-2xl bg-ink/5 flex items-center justify-center mb-8 text-ink group-hover:bg-ink group-hover:text-white smooth-hover shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7" aria-hidden="true"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            </div>
+            <h3 class="text-xl font-serif font-semibold mb-4 text-ink">Prótesis y Rehabilitación</h3>
+            <p class="text-muted font-light leading-relaxed flex-grow">
+              Reconstrucción y reemplazo de piezas dentales dañadas o ausentes con prótesis fijas o removibles de alta durabilidad.
+            </p>
+            <span class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand">
+              Ver tratamientos
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Tarjeta 4: Estética Dental -->
+          <a
+            href="/servicios.html?categoria=estetica#catalogo"
+            class="group rounded-3xl p-8 sm:p-10 bg-white border border-line shadow-xs hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.07)] smooth-hover hover:-translate-y-2 flex flex-col h-full relative overflow-hidden transition-all duration-300"
+          >
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ink to-brand transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            <div class="w-14 h-14 rounded-2xl bg-ink/5 flex items-center justify-center mb-8 text-ink group-hover:bg-ink group-hover:text-white smooth-hover shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-xl font-serif font-semibold mb-4 text-ink">Estética Dental</h3>
+            <p class="text-muted font-light leading-relaxed flex-grow">
+              Blanqueamiento dental, carillas y diseño de sonrisa para lucir una dentadura reluciente y natural.
+            </p>
+            <span class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand">
+              Ver tratamientos
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <!-- Tarjeta 5 Destacada: Endodoncia y Cirugía -->
+          <a
+            href="/servicios.html?categoria=endodoncia-cirugia#catalogo"
+            class="group rounded-3xl p-8 sm:p-10 lg:col-span-2 bg-gradient-to-br from-ink via-deep to-deep-2 text-white border-none shadow-xl overflow-hidden relative"
+          >
+            <div class="flex flex-col md:flex-row gap-8 items-center h-full relative z-10">
+              <div class="flex-1">
+                <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-8 text-white shadow-inner">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-cyan-300" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold mb-4">Endodoncia y Cirugía Bucal</h3>
+                <p class="text-white/80 font-light leading-relaxed max-w-md">
+                  Tratamientos de conducto para salvar el diente de infecciones intensas y extracciones seguras con anestesia local
+                  para aliviar el dolor.
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-300">
+                  Ver tratamientos
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+              </div>
+
+              <div class="flex-1 w-full h-56 md:h-full min-h-[220px] relative rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                <img
+                  alt="Profesional de la salud dental"
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 smooth-hover duration-700 opacity-80"
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. JOURNEY SECTION -->
+      <section id="journey" class="py-24 lg:py-32 w-full bg-slate-50">
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 xl:px-32">
+          <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 lg:mb-20 gap-4">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-8 h-px bg-brand"></span>
+              <span class="text-xs font-bold tracking-widest uppercase text-brand">Tu Atención Paso a Paso</span>
+              <span class="w-8 h-px bg-brand"></span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-ink">
+              ¿Cómo trabajamos en tu consulta?
+            </h2>
+            <p class="text-base sm:text-lg font-light text-muted leading-relaxed max-w-xl">
+              Un proceso claro y transparente diseñado para tu comodidad y la salud dental de toda tu familia.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-line -translate-y-1/2 z-0"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 lg:gap-8 relative z-10">
+              <div class="flex flex-col items-center text-center group bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-slate-100 md:border-none shadow-xs md:shadow-none">
+                <div class="w-16 h-16 rounded-full bg-white border-2 border-ink text-ink flex items-center justify-center text-xl font-serif font-bold mb-6 group-hover:bg-ink group-hover:text-white smooth-hover shadow-md transition-all duration-300">
+                  01
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3 text-ink">Consulta Inicial</h3>
+                <p class="text-muted font-light text-sm leading-relaxed">
+                  Evaluación clínica detallada para conocer tus necesidades dentales y planificar la mejor atención.
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center text-center group bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-slate-100 md:border-none shadow-xs md:shadow-none md:mt-10">
+                <div class="w-16 h-16 rounded-full bg-white border-2 border-ink text-ink flex items-center justify-center text-xl font-serif font-bold mb-6 group-hover:bg-ink group-hover:text-white smooth-hover shadow-md transition-all duration-300">
+                  02
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3 text-ink">Diagnóstico con Rayos X</h3>
+                <p class="text-muted font-light text-sm leading-relaxed">
+                  Toma de imágenes radiográficas inmediatas en el consultorio para determinar un diagnóstico exacto.
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center text-center group bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-slate-100 md:border-none shadow-xs md:shadow-none">
+                <div class="w-16 h-16 rounded-full bg-white border-2 border-ink text-ink flex items-center justify-center text-xl font-serif font-bold mb-6 group-hover:bg-ink group-hover:text-white smooth-hover shadow-md transition-all duration-300">
+                  03
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3 text-ink">Tratamiento Personalizado</h3>
+                <p class="text-muted font-light text-sm leading-relaxed">
+                  Procedimientos realizados con técnicas modernas, máximo cuidado e higiene para tu total tranquilidad.
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center text-center group bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-slate-100 md:border-none shadow-xs md:shadow-none md:mt-10">
+                <div class="w-16 h-16 rounded-full bg-white border-2 border-ink text-ink flex items-center justify-center text-xl font-serif font-bold mb-6 group-hover:bg-ink group-hover:text-white smooth-hover shadow-md transition-all duration-300">
+                  04
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3 text-ink">Control y Seguimiento</h3>
+                <p class="text-muted font-light text-sm leading-relaxed">
+                  Revisiones periódicas de mantenimiento para garantizar resultados duraderos en tu salud bucal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. ENVIRONMENT SECTION -->
+      <section id="environment" class="py-24 lg:py-32 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto bg-slate-50/50 rounded-3xl">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div class="flex flex-col gap-4 text-left max-w-2xl">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-8 h-px bg-brand"></span>
+              <span class="text-xs font-bold tracking-widest uppercase text-brand">Nuestras Instalaciones</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-ink">
+              Diseñado para tu comodidad
+            </h2>
+            <p class="text-base sm:text-lg font-light text-muted leading-relaxed">
+              Contamos con un espacio moderno, limpio y equipado con la tecnología necesaria para brindarte a ti y a tu familia una atención dental segura y confortable.
+            </p>
+          </div>
+        </div>
+
+        <div class="env-gallery grid grid-cols-1 md:grid-cols-3 gap-8">
+          <figure class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+            <img
+              alt="Área de recepción y espera"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=1200"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <figcaption class="absolute bottom-6 left-6 right-6 text-white text-left">
+              <p class="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-1">Recepción y Espera</p>
+              <h3 class="text-xl font-serif font-medium">Ambiente Cómodo y Agradable</h3>
+            </figcaption>
+          </figure>
+
+          <figure class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+            <img
+              alt="Consultorio odontológico"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1200"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <figcaption class="absolute bottom-6 left-6 right-6 text-white text-left">
+              <p class="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-1">Consultorio Principal</p>
+              <h3 class="text-xl font-serif font-medium">Atención con Higiene y Seguridad</h3>
+            </figcaption>
+          </figure>
+
+          <figure class="group relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+            <img
+              alt="Equipo de diagnóstico dental"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <figcaption class="absolute bottom-6 left-6 right-6 text-white text-left">
+              <p class="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-1">Diagnóstico Digital</p>
+              <h3 class="text-xl font-serif font-medium">Servicio de Rayos X</h3>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 7. TESTIMONIALS / GUARANTEES CAROUSEL SECTION -->
+      <section id="guarantees" class="py-24 lg:py-32 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div class="lg:col-span-5 flex flex-col gap-6 text-left">
+            <div class="inline-flex items-center gap-2">
+              <span class="w-8 h-px bg-brand"></span>
+              <span class="text-xs font-bold tracking-widest uppercase text-brand">Nuestro Compromiso</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium leading-tight text-ink">
+              Tu tranquilidad es nuestra prioridad
+            </h2>
+
+            <p class="text-base sm:text-lg font-light text-muted leading-relaxed">
+              En <strong class="font-semibold text-ink">Mi Dentista</strong> diseñamos un servicio enfocado en brindarte confianza, higiene y profesionalismo en cada consulta.
+            </p>
+
+            <div class="flex items-center gap-4 mt-2">
+              <button
+                id="guarantee-prev-btn"
+                type="button"
+                class="w-12 h-12 rounded-full border border-line flex items-center justify-center hover:bg-ink hover:text-white smooth-hover text-ink transition-colors shadow-xs cursor-pointer"
+                aria-label="Anterior compromiso"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              </button>
+
+              <button
+                id="guarantee-next-btn"
+                type="button"
+                class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center hover:bg-brand smooth-hover shadow-lg transition-colors cursor-pointer"
+                aria-label="Siguiente compromiso"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+
+              <span id="guarantee-counter" class="text-xs font-semibold text-muted ml-2">
+                01 / 03
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 relative">
+            <div
+              id="guarantee-card-container"
+              aria-live="polite"
+              class="glass-panel p-8 sm:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200/80 bg-white relative z-10 text-left transition-all duration-300"
+            >
+              <!-- Rellenado dinámicamente por carousel.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. BOOKING CTA SECTION -->
+      <section class="py-24 relative overflow-hidden" id="booking">
+        <div class="absolute inset-0 bg-ink z-0"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.2)_0%,transparent_70%)] z-0"></div>
+
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-10 lg:px-20 xl:px-40 relative z-10 text-center flex flex-col items-center">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-tight text-white mb-8 max-w-3xl">
+            ¿Listo para lucir una sonrisa saludable?
+          </h2>
+          <p class="text-xl font-light text-white/80 mb-12 max-w-2xl">
+            Agenda tu cita hoy mismo y da el primer paso para cuidar la salud bucal de toda tu familia.
+          </p>
+          <button
+            type="button"
+            data-open-booking-modal
+            class="flex items-center justify-center rounded-full h-16 px-12 bg-white text-ink text-base font-medium tracking-widest uppercase hover:bg-slate-50 shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-300 cursor-pointer"
+          >
+            Solicitar Cita
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts de módulos nativos -->
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/home.js"></script>
   </body>
 </html>

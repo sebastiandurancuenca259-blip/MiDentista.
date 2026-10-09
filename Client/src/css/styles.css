@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+@import "./base.css";
+
+/* Tokens de tema para Tailwind CSS v4 */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --color-ink: #0f172a;          /* texto principal y fondos oscuros */
+  --color-brand: #0ea5e9;        /* celeste de la marca */
+  --color-brand-dark: #0284c7;
+  --color-muted: #64748b;        /* texto secundario */
+  --color-line: #e2e8f0;         /* bordes suaves */
+  --color-deep: #003852;         /* degradados oscuros */
+  --color-deep-2: #004666;
+  --color-deep-3: #004c6e;
+  --color-deep-4: #003953;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #20bd5a;
+
+  --animate-fade-in: fadeIn 0.3s ease-out both;
+}
+
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+}

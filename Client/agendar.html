@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendar Cita | Mi Dentista</title>
+    <meta
+      name="description"
+      content="Reserva tu cita odontológica en línea con la Clínica Dental Mi Dentista en Satélite Norte. Elige fecha, horario libre y confirma tu atención."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-white text-ink font-sans antialiased flex flex-col selection:bg-brand selection:text-white">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <main id="contenido" tabindex="-1" class="flex-1 max-w-3xl mx-auto px-6 py-12 w-full outline-none">
+      <div class="text-center mb-8">
+        <span class="text-xs font-semibold tracking-widest text-brand uppercase">Atención Odontológica</span>
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-ink mt-1">Reserva tu Cita</h1>
+        <p class="text-slate-500 text-sm mt-1">Elige el servicio, la fecha y un horario libre; luego ingresa tus datos.</p>
+      </div>
+
+      <div id="booking-card" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl">
+        <div id="booking-form-container">
+          <!-- Renderizado dinámicamente por booking-form.js -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/booking.js"></script>
+  </body>
+</html>

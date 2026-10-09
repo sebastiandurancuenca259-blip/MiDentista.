@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto, Ubicación y Horarios | Mi Dentista</title>
+    <meta
+      name="description"
+      content="Ubicación y horarios de atención de la Clínica Dental Mi Dentista en Satélite Norte (Warnes). Contáctanos por teléfono o WhatsApp."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-white text-ink font-sans antialiased flex flex-col selection:bg-brand selection:text-white">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <main id="contenido" tabindex="-1" class="w-full relative z-20 bg-white flex flex-col flex-1 outline-none">
+      
+      <!-- HERO CONTACTO -->
+      <section class="pt-6 pb-12 lg:pt-10 lg:pb-16 px-4 md:px-8 lg:px-16 xl:px-24 w-full max-w-[1440px] mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-6 z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-bold uppercase tracking-widest mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-brand" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span>Atención Personalizada</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-ink leading-tight tracking-tight mb-6">
+              Ponte en Contacto <br />
+              <span class="text-gradient italic font-serif">El Arte de Cuidar tu Sonrisa</span>
+            </h1>
+
+            <p class="text-base sm:text-lg font-normal text-slate-800 leading-relaxed max-w-lg">
+              Experimenta una odontología diferente. Te invitamos a dar el primer paso hacia una excelencia clínica con la máxima comodidad y tranquilidad.
+            </p>
+          </div>
+
+          <div class="lg:col-span-6 relative">
+            <div class="aspect-[4/3] sm:aspect-[16/10] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group relative">
+              <img
+                src="/src/assets/clinica/atencion-consultorio.jpg"
+                alt="Odontóloga de Mi Dentista atendiendo a una niña en el consultorio"
+                class="w-full h-full object-cover object-[center_45%] group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
+            </div>
+
+            <div class="absolute -bottom-6 -left-4 sm:-left-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-xl max-w-xs hidden sm:flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-brand shrink-0 mt-0.5" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+              <p class="text-xs font-serif italic text-ink leading-relaxed">
+                "Un espacio dedicado a tu bienestar, donde la precisión se une con la tranquilidad."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENTO GRID (MAPA, HORARIOS, CONTACTO DIRECTO) -->
+      <section class="py-16 lg:py-24 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <!-- Mapa interactivo -->
+          <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between min-h-[480px]">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <h2 class="text-xl font-serif font-bold text-ink">Ubicación del Consultorio</h2>
+                  <p class="text-xs font-medium text-slate-500">Satélite Norte, Warnes – Santa Cruz</p>
+                </div>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/vK6uyptKRcyDkSkv8"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-1 text-xs font-bold text-brand hover:underline bg-brand/10 px-3 py-2 rounded-xl transition-all shrink-0"
+              >
+                <span>Abrir en Google Maps</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+
+            <div class="w-full h-full min-h-[360px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+              <iframe
+                title="Mapa de ubicación de Mi Dentista Clínica Dental"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.5081946798937!2d-63.138441799999995!3d-17.6031931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e172d17ab2bf%3A0x771397dd048b78d0!2sMi%20Dentista%20Cl%C3%ADnica%20Dental!5e1!3m2!1ses!2sbo!4v1789592894259!5m2!1ses!2sbo"
+                class="w-full h-full min-h-[360px] border-0"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+            <!-- Horarios -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h2 class="text-xl font-serif font-bold text-ink">Horarios de Atención</h2>
+              </div>
+
+              <dl class="space-y-4 text-slate-700">
+                <div class="flex justify-between items-center gap-4 pb-3 border-b border-slate-100">
+                  <dt class="text-sm font-semibold text-ink">Lunes a Viernes</dt>
+                  <dd class="text-sm font-medium text-slate-600 text-right">08:00 – 12:00 y 14:00 – 20:00</dd>
+                </div>
+                <div class="flex justify-between items-center gap-4 pb-3 border-b border-slate-100">
+                  <dt class="text-sm font-semibold text-ink">Sábados</dt>
+                  <dd class="text-sm font-medium text-slate-600 text-right">08:00 – 12:00</dd>
+                </div>
+                <div class="flex justify-between items-center gap-4">
+                  <dt class="text-sm font-semibold text-ink">Domingos y feriados</dt>
+                  <dd class="text-xs font-bold text-rose-500 uppercase tracking-wider">Cerrado</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Contacto directo -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <h2 class="text-xl font-serif font-bold text-ink">Contacto</h2>
+              </div>
+
+              <p class="text-sm font-normal text-slate-600 leading-relaxed mb-4">
+                Escríbenos o llámanos para resolver cualquier duda sobre nuestros servicios.
+              </p>
+
+              <div class="space-y-3">
+                <a
+                  href="https://wa.me/59178410535?text=Hola%2C%20tengo%20una%20consulta."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-semibold text-ink hover:text-brand transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-whatsapp shrink-0" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                  WhatsApp +591 78410535
+                </a>
+                <a
+                  href="tel:+59178410535"
+                  class="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-semibold text-ink hover:text-brand transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand shrink-0" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Llamar al +591 78410535
+                </a>
+                <a
+                  href="mailto:midentista114@gmail.com"
+                  class="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-semibold text-ink hover:text-brand transition-colors break-all"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-brand shrink-0" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  midentista114@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATENCIÓN DE URGENCIAS -->
+      <section class="pb-20 lg:pb-28 px-6 md:px-12 lg:px-20 xl:px-32 w-full max-w-[1440px] mx-auto">
+        <div class="bg-ink text-white rounded-3xl p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl border border-slate-800">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-2xl text-center lg:text-left">
+            <div class="inline-flex items-center justify-center lg:justify-start gap-2 mb-4 text-red-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 fill-red-500/20 text-red-400" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              <span class="text-xs font-bold tracking-widest uppercase text-red-400">Atención Urgente</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">Urgencias Dentales</h2>
+
+            <p class="text-base sm:text-lg font-normal text-slate-200 leading-relaxed">
+              Un dolor agudo o un traumatismo requieren atención inmediata. Reservamos espacios de tiempo diariamente para emergencias. Por favor, contáctanos directamente por teléfono en lugar del formulario.
+            </p>
+          </div>
+
+          <div class="relative z-10 shrink-0">
+            <a
+              href="tel:+59178410535"
+              class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white text-ink font-bold text-xs uppercase tracking-widest hover:bg-brand hover:text-white transition-all shadow-xl whitespace-nowrap cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>
+              <span>Llamar a Urgencias</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

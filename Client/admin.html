@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de la Clínica | Mi Dentista</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-slate-50/50 text-ink font-sans antialiased flex flex-col selection:bg-brand selection:text-white">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <main id="contenido" tabindex="-1" class="flex-1 min-h-screen w-full outline-none">
+      <div id="admin-container">
+        <!-- Renderizado dinámicamente por admin.js -->
+      </div>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/admin.js"></script>
+  </body>
+</html>
