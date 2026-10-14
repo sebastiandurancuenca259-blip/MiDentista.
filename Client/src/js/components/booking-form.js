@@ -7,6 +7,14 @@ import { enlaceWhatsApp } from '../../lib/whatsapp';
 import { crearCita, obtenerHorariosOcupados } from '../../lib/citas';
 import { supabaseConfigurado } from '../../lib/supabase';
 import { iconSvg } from '../icons';
+import { mostrarToast } from './toast';
+
+// ─── Horarios límite del consultorio ──────────────────────────────────────
+// Lunes–Viernes: no se permite reservar después de 20:30
+const HORA_LIMITE_LV = { h: 20, m: 30 };
+// Sábado: solo turno de mañana (el HORARIO ya lo define), pero mostramos
+// un mensaje específico si el usuario intenta seleccionar un horario de tarde.
+// La validación real la hace el generador de slots; aquí solo notificamos.
 
 const VALORES_INICIALES = {
   servicio: 'consulta-general',
@@ -23,6 +31,46 @@ const claseCampo = (conError) =>
   `w-full border rounded-xl p-3.5 text-slate-800 bg-slate-50/50 focus:outline-none focus:bg-white transition-all text-sm ${
     conError ? 'border-rose-300 focus:border-rose-400' : 'border-slate-200 focus:border-brand'
   }`;
+
+/**
+ * Devuelve un mensaje amigable si el horario seleccionado cae fuera del horario
+ * del consultorio, o null si está dentro del horario permitido.
+ *
+ * Reglas:
+ *  - Domingo → mensaje de día cerrado (normalmente ya filtrado por motivoCierre)
+ *  - Sábado  → tarde cerrada (los slots de tarde no se generan, pero si alguien
+ *               llega con una hora de tarde por URL damos feedback claro)
+ *  - Lunes-Viernes → no se permite después de 20:30
+ */
+function mensajeHorarioFueraCierre(fechaISO, horaStr) {
+  if (!fechaISO || !horaStr) return null;
+
+  const fecha = new Date(`${fechaISO}T00:00:00`);
+  const dia = fecha.getDay(); // 0=domingo, 6=sábado
+
+  if (dia === 0) {
+    return '¡Lo sentimos! Los domingos el consultorio permanece cerrado. Por favor elige otro día 😊';
+  }
+
+  const [hh, mm] = horaStr.split(':').map(Number);
+  const minutos = hh * 60 + mm;
+
+  if (dia === 6) {
+    // Sábado: solo mañana (la configuración cierra a las 12:00)
+    if (minutos >= 12 * 60) {
+      return '¡Los sábados solo atendemos por la mañana! El consultorio cierra a las 12:00. Elige un horario de mañana 🌞';
+    }
+  }
+
+  if (dia >= 1 && dia <= 5) {
+    // Lunes a Viernes: límite 20:30
+    if (minutos > HORA_LIMITE_LV.h * 60 + HORA_LIMITE_LV.m) {
+      return '¡Ups! Los días de semana atendemos hasta las 8:30 p.m. Elige un horario antes de esa hora ⏰';
+    }
+  }
+
+  return null;
+}
 
 /**
  * Renderiza y gestiona el formulario de reserva de citas nativo.
@@ -218,6 +266,7 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
             autocomplete="name"
             placeholder="Ej. Juan Pérez"
             value="${state.valores.nombre}"
+            maxlength="100"
             class="${claseCampo(state.errores.nombre)}"
           />
           ${
@@ -229,15 +278,16 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
 
         <div>
           <label for="${idForm}-telefono" class="flex items-center gap-2 text-xs font-semibold uppercase text-slate-500 mb-1">
-            ${iconSvg('phone', { className: 'w-3.5 h-3.5 text-brand' })} Teléfono / WhatsApp *
+            ${iconSvg('phone', { className: 'w-3.5 h-3.5 text-brand' })} Número de celular *
           </label>
           <input
             id="${idForm}-telefono"
             type="tel"
             autocomplete="tel"
-            inputmode="tel"
+            inputmode="numeric"
             placeholder="Ej. 70012345"
             value="${state.valores.telefono}"
+            maxlength="15"
             class="${claseCampo(state.errores.telefono)}"
           />
           ${
@@ -249,7 +299,7 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
 
         <div>
           <label for="${idForm}-email" class="flex items-center gap-2 text-xs font-semibold uppercase text-slate-500 mb-1">
-            ${iconSvg('mail', { className: 'w-3.5 h-3.5 text-brand' })} Correo electrónico (opcional)
+            ${iconSvg('mail', { className: 'w-3.5 h-3.5 text-brand' })} Correo electrónico <span class="font-normal normal-case text-slate-400">(opcional)</span>
           </label>
           <input
             id="${idForm}-email"
@@ -325,7 +375,7 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
                 ${state.enviando || !supabaseConfigurado ? 'disabled' : ''}
                 class="flex items-center gap-2 px-8 py-2.5 rounded-full bg-brand text-white text-sm font-semibold hover:bg-brand-dark transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
-                ${state.enviando ? 'Enviando…' : 'Confirmar cita'}
+                ${state.enviando ? 'Guardando…' : 'Confirmar cita'}
               </button>
             `
         }
@@ -418,7 +468,23 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
         state.errores.hora = null;
         state.ocupados = [];
 
-        if (fecha && !motivoCierre(fecha) && supabaseConfigurado) {
+        // Notificar si el día está cerrado (domingo)
+        const cierre = fecha ? motivoCierre(fecha) : null;
+        if (cierre) {
+          const fecha_ = new Date(`${fecha}T00:00:00`);
+          const dia = fecha_.getDay();
+          if (dia === 0) {
+            mostrarToast(
+              '¡Los domingos el consultorio está cerrado! Por favor elige un día de lunes a sábado 😊',
+              'aviso',
+              { titulo: 'Día no disponible', duracion: 7000 },
+            );
+          } else {
+            mostrarToast(cierre, 'aviso', { titulo: 'Día no disponible', duracion: 7000 });
+          }
+        }
+
+        if (fecha && !cierre && supabaseConfigurado) {
           state.cargandoHorarios = true;
           render();
           const { datos } = await obtenerHorariosOcupados(fecha);
@@ -430,7 +496,16 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
 
       form.querySelectorAll('.btn-slot').forEach((btn) => {
         btn.addEventListener('click', () => {
-          state.valores.hora = btn.getAttribute('data-hora');
+          const hora = btn.getAttribute('data-hora');
+
+          // Verificar si la hora seleccionada está dentro del horario permitido
+          const mensajeHorario = mensajeHorarioFueraCierre(state.valores.fecha, hora);
+          if (mensajeHorario) {
+            mostrarToast(mensajeHorario, 'aviso', { titulo: 'Horario no disponible', duracion: 7000 });
+            return;
+          }
+
+          state.valores.hora = hora;
           state.errores.hora = null;
           render();
         });
@@ -445,14 +520,38 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
         }
       });
     } else {
+      // ─── Paso 2: campo nombre – solo letras y espacios (filtro en tiempo real) ─
       const inputNombre = document.getElementById(`${idForm}-nombre`);
+      inputNombre?.addEventListener('keypress', (e) => {
+        // Bloquear dígitos y caracteres especiales mientras escribe
+        const char = e.key;
+        if (!/^[\p{L}\s'.-]$/u.test(char)) {
+          e.preventDefault();
+        }
+      });
       inputNombre?.addEventListener('input', (e) => {
+        // Limpieza adicional por si llega texto pegado con ctrl+v
+        const limpio = e.target.value.replace(/[^a-zA-ZÀ-ÿ\u00f1\u00d1\s'.\\-]/g, '');
+        if (e.target.value !== limpio) {
+          e.target.value = limpio;
+        }
         state.valores.nombre = e.target.value;
         state.errores.nombre = null;
       });
 
+      // ─── Campo teléfono – solo números (filtro en tiempo real) ──────────────
       const inputTelefono = document.getElementById(`${idForm}-telefono`);
+      inputTelefono?.addEventListener('keypress', (e) => {
+        if (!/[\d+\s\-()]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+          e.preventDefault();
+        }
+      });
       inputTelefono?.addEventListener('input', (e) => {
+        // Permite solo dígitos, +, espacios, guiones y paréntesis (para +591 70012345)
+        const limpio = e.target.value.replace(/[^\d+\s\-()]/g, '');
+        if (e.target.value !== limpio) {
+          e.target.value = limpio;
+        }
         state.valores.telefono = e.target.value;
         state.errores.telefono = null;
       });
@@ -489,6 +588,8 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
         }
 
         const resumen = { ...state.valores };
+
+        // Si el honeypot está lleno es un bot → simular éxito sin guardar
         if (state.valores.sitioWeb) {
           state.citaRegistrada = resumen;
           render();
@@ -497,11 +598,14 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
 
         state.enviando = true;
         render();
+
         const { error } = await crearCita(state.valores);
         state.enviando = false;
 
         if (error) {
           state.errorEnvio = error.mensaje;
+          mostrarToast(error.mensaje, 'error', { titulo: 'No se pudo guardar la cita' });
+
           if (error.code === '23505') {
             const { datos } = await obtenerHorariosOcupados(state.valores.fecha);
             state.ocupados = datos ?? [];
@@ -511,6 +615,13 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
           render();
           return;
         }
+
+        // ¡Éxito! Mostramos toast y pantalla de confirmación
+        mostrarToast(
+          `¡Tu cita del ${formatearFechaLarga(state.valores.fecha)} a las ${state.valores.hora} fue registrada! Te contactaremos pronto.`,
+          'exito',
+          { titulo: '¡Cita agendada con éxito!', duracion: 8000 },
+        );
 
         state.citaRegistrada = resumen;
         render();
@@ -535,6 +646,14 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
     }
 
     state.errores = nuevos;
+
+    // Notificaciones toast de validación al presionar siguiente
+    if (nuevos.fecha) {
+      mostrarToast(nuevos.fecha, 'aviso', { titulo: 'Fecha no válida' });
+    } else if (nuevos.hora) {
+      mostrarToast('Por favor selecciona un horario de la lista disponible.', 'aviso', { titulo: 'Horario requerido' });
+    }
+
     return Object.keys(nuevos).length === 0;
   }
 
@@ -549,6 +668,13 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
     };
 
     state.errores = nuevos;
+
+    // Mostrar el primer error como toast
+    const primerError = Object.values(nuevos).find((v) => v !== null);
+    if (primerError) {
+      mostrarToast(primerError, 'aviso', { titulo: 'Revisa el formulario' });
+    }
+
     return Object.values(nuevos).every((err) => !err);
   }
 
