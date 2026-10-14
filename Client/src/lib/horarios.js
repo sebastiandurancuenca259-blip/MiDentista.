@@ -16,9 +16,13 @@ export function generarInicios([apertura, cierre], duracion) {
 /**
  * Motivo por el que la clínica no atiende ese día, o null si atiende.
  * Devuelve un texto listo para mostrar al paciente.
+ * Devuelve null si fechaISO está vacía o no es válida (guardia anti-crash).
  */
 export function motivoCierre(fechaISO, { config = HORARIO, adicionales = FERIADOS_ADICIONALES } = {}) {
-  const dia = desdeISO(fechaISO).getDay();
+  if (!fechaISO) return null;
+  const fecha = desdeISO(fechaISO);
+  if (!fecha) return null; // fecha inválida → no bloqueamos, el formulario ya valida
+  const dia = fecha.getDay();
   if (dia === 0) return 'Los domingos la clínica permanece cerrada.';
   const feriado = nombreFeriado(fechaISO, adicionales);
   if (feriado) return `Ese día es feriado (${feriado}) y la clínica permanece cerrada.`;
@@ -29,6 +33,7 @@ export function motivoCierre(fechaISO, { config = HORARIO, adicionales = FERIADO
 /** Todos los horarios de inicio del día, sin considerar ocupados ni la hora actual. */
 export function horariosDelDia(fechaISO, opciones = {}) {
   const { config = HORARIO } = opciones;
+  if (!fechaISO || !desdeISO(fechaISO)) return []; // guardia anti-crash
   if (motivoCierre(fechaISO, opciones)) return [];
   const dia = desdeISO(fechaISO).getDay();
   return config.turnos[dia].flatMap((turno) => generarInicios(turno, config.duracionCitaMin));

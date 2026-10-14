@@ -252,7 +252,7 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
         <div class="p-4 rounded-2xl bg-brand/5 border border-brand/20 text-sm text-ink">
           <strong>${nombreServicio(state.valores.servicio)}</strong>
           <span class="block text-slate-600 first-letter:uppercase">
-            ${formatearFechaLarga(state.valores.fecha)} · ${state.valores.hora}
+            ${state.valores.fecha ? formatearFechaLarga(state.valores.fecha) : '—'} · ${state.valores.hora || '—'}
           </span>
         </div>
 
@@ -531,7 +531,7 @@ export function renderBookingForm(contenedor, { servicioInicial = '' } = {}) {
       });
       inputNombre?.addEventListener('input', (e) => {
         // Limpieza adicional por si llega texto pegado con ctrl+v
-        const limpio = e.target.value.replace(/[^a-zA-ZÀ-ÿ\u00f1\u00d1\s'.\\-]/g, '');
+        const limpio = e.target.value.replace(/[^a-zA-ZÀ-ÿ\u00f1\u00d1\s'.\-]/g, '');
         if (e.target.value !== limpio) {
           e.target.value = limpio;
         }

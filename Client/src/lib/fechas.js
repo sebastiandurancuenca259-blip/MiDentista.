@@ -9,10 +9,19 @@ export function aISO(fecha) {
   return `${fecha.getFullYear()}-${dosDigitos(fecha.getMonth() + 1)}-${dosDigitos(fecha.getDate())}`;
 }
 
-/** 'YYYY-MM-DD' → Date a las 00:00 hora local. */
+/**
+ * 'YYYY-MM-DD' → Date a las 00:00 hora local.
+ * Devuelve null si la cadena está vacía o no es una fecha válida.
+ */
 export function desdeISO(iso) {
-  const [anio, mes, dia] = iso.split('-').map(Number);
-  return new Date(anio, mes - 1, dia);
+  if (!iso || typeof iso !== 'string' || iso.trim() === '') return null;
+  const partes = iso.split('-').map(Number);
+  if (partes.length !== 3 || partes.some(isNaN)) return null;
+  const [anio, mes, dia] = partes;
+  const fecha = new Date(anio, mes - 1, dia);
+  // Verificar que la fecha construida es válida
+  if (isNaN(fecha.getTime())) return null;
+  return fecha;
 }
 
 export function sumarDias(fecha, dias) {
@@ -49,14 +58,18 @@ const formatoCorto = new Intl.DateTimeFormat('es-BO', {
   month: 'short',
 });
 
-/** '2026-10-03' → 'sábado, 3 de octubre de 2026' */
+/** '2026-10-03' → 'sábado, 3 de octubre de 2026' (devuelve '' si iso no es válido) */
 export function formatearFechaLarga(iso) {
-  return formatoLargo.format(desdeISO(iso));
+  const fecha = desdeISO(iso);
+  if (!fecha) return '';
+  return formatoLargo.format(fecha);
 }
 
-/** '2026-10-03' → 'sáb, 3 oct' */
+/** '2026-10-03' → 'sáb, 3 oct' (devuelve '' si iso no es válido) */
 export function formatearFechaCorta(iso) {
-  return formatoCorto.format(desdeISO(iso));
+  const fecha = desdeISO(iso);
+  if (!fecha) return '';
+  return formatoCorto.format(fecha);
 }
 
 /** '14:00:00' o '14:00' → '14:00' */
