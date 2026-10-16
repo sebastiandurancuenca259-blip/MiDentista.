@@ -38,11 +38,11 @@ function mensajeParaPaciente(cita) {
 
 /**
  * Renderiza y gestiona el panel administrativo de citas.
- * @param {HTMLElement} contenedor - Contenedor en el DOM
+ * @param {HTMLElement} contenedor contenedor en el DOM
  * @param {object} opciones
- * @param {function} opciones.onCerrarSesion - Callback para cerrar sesión
+ * @param {function} opciones.onCerrarSesion callback para cerrar sesión
  */
-export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } = {}) {
+export function renderAdminDashboard(contenedor, { onCerrarSesion = () => { } } = {}) {
   if (!contenedor) return;
 
   const state = {
@@ -150,21 +150,20 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
         <div class="flex flex-col lg:flex-row gap-3 lg:items-center justify-between mb-6">
           <div class="flex flex-wrap gap-2" role="group" aria-label="Periodo" id="grupo-vistas">
             ${VISTAS.map(
-              (opc) => `
+      (opc) => `
               <button
                 type="button"
                 data-vista="${opc.id}"
                 aria-pressed="${state.vista === opc.id}"
-                class="btn-vista px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
-                  state.vista === opc.id
-                    ? 'bg-ink text-white'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
-                }"
+                class="btn-vista px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${state.vista === opc.id
+          ? 'bg-ink text-white'
+          : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
+        }"
               >
                 ${opc.etiqueta}
               </button>
             `,
-            ).join('')}
+    ).join('')}
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3">
@@ -175,12 +174,12 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
             >
               <option value="todos" ${state.filtroEstado === 'todos' ? 'selected' : ''}>Todos los estados</option>
               ${Object.entries(ESTADOS_CITA)
-                .map(
-                  ([id, info]) => `
+        .map(
+          ([id, info]) => `
                 <option value="${id}" ${state.filtroEstado === id ? 'selected' : ''}>${info.etiqueta}</option>
               `,
-                )
-                .join('')}
+        )
+        .join('')}
             </select>
 
             <div class="relative">
@@ -199,38 +198,34 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
           </div>
         </div>
 
-        ${
-          state.error
-            ? `
+        ${state.error
+        ? `
             <div role="alert" class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-sm flex items-center gap-2">
-              ${iconSvg('alertCircle', { className: 'w-5 h-5 shrink-0' })}
-              <span>${state.error}</span>
+              ${iconSvg('alertCircle', { className: 'w-5 h-5 shrink-0' })} <span>${state.error}</span>
             </div>
           `
-            : ''
-        }
+        : ''
+      }
 
         <!-- Lista de Citas -->
         <div class="bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden">
-          ${
-            state.cargando && state.citas.length === 0
-              ? `<p class="p-12 text-center text-slate-500 font-medium">Cargando citas…</p>`
-              : visibles.length === 0
-                ? `<p class="p-12 text-center text-slate-500 font-medium">No hay citas para este filtro.</p>`
-                : `
+          ${state.cargando && state.citas.length === 0
+        ? `<p class="p-12 text-center text-slate-500 font-medium">Cargando citas…</p>`
+        : visibles.length === 0
+          ? `<p class="p-12 text-center text-slate-500 font-medium">No hay citas para este filtro.</p>`
+          : `
                   <ul class="divide-y divide-slate-100" id="lista-citas-ul">
                     ${visibles
-                      .map((cita) => {
-                        const estado = estadoDe(cita);
-                        const infoEstado = ESTADOS_CITA[estado] ?? ESTADOS_CITA.pendiente;
-                        const ocupada = state.procesandoId === cita.id;
-                        const acciones = ACCIONES[estado] ?? [];
+            .map((cita) => {
+              const estado = estadoDe(cita);
+              const infoEstado = ESTADOS_CITA[estado] ?? ESTADOS_CITA.pendiente;
+              const ocupada = state.procesandoId === cita.id;
+              const acciones = ACCIONES[estado] ?? [];
 
-                        return `
+              return `
                           <li
-                            class="p-5 lg:px-8 grid gap-4 lg:grid-cols-[1.2fr_1.2fr_1fr_auto] lg:items-center ${
-                              ocupada ? 'opacity-50' : ''
-                            } ${estado === 'cancelada' ? 'bg-slate-50/60' : ''}"
+                            class="p-5 lg:px-8 grid gap-4 lg:grid-cols-[1.2fr_1.2fr_1fr_auto] lg:items-center ${ocupada ? 'opacity-50' : ''
+                } ${estado === 'cancelada' ? 'bg-slate-50/60' : ''}"
                           >
                             <div>
                               <p class="text-sm font-bold text-ink capitalize">
@@ -245,16 +240,14 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
                                 ${iconSvg('phone', { className: 'w-3.5 h-3.5 text-brand' })}
                                 ${cita.paciente_telefono || 'N/A'}
                               </a>
-                              ${
-                                cita.paciente_email
-                                  ? `
+                              ${cita.paciente_email
+                  ? `
                                   <a href="mailto:${cita.paciente_email}" class="flex items-center gap-2 text-slate-500 text-xs hover:text-brand break-all">
-                                    ${iconSvg('mail', { className: 'w-3.5 h-3.5 text-slate-400' })}
-                                    ${cita.paciente_email}
+                                    ${iconSvg('mail', { className: 'w-3.5 h-3.5 text-slate-400' })}${cita.paciente_email}
                                   </a>
                                 `
-                                  : ''
-                              }
+                  : ''
+                }
                             </div>
 
                             <div>
@@ -264,14 +257,13 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
                             </div>
 
                             <div class="flex flex-wrap gap-2 lg:justify-end">
-                              ${
-                                cita.paciente_telefono
-                                  ? `
+                              ${cita.paciente_telefono
+                  ? `
                                   <a
                                     href="${enlaceWhatsApp(
-                                      mensajeParaPaciente(cita),
-                                      numeroParaWhatsApp(cita.paciente_telefono),
-                                    )}"
+                    mensajeParaPaciente(cita),
+                    numeroParaWhatsApp(cita.paciente_telefono),
+                  )}"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-whatsapp/10 text-emerald-700 hover:bg-whatsapp/20"
@@ -279,11 +271,11 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
                                     ${iconSvg('messageCircle', { className: 'w-3.5 h-3.5' })} WhatsApp
                                   </a>
                                 `
-                                  : ''
-                              }
+                  : ''
+                }
                               ${acciones
-                                .map(
-                                  (acc) => `
+                  .map(
+                    (acc) => `
                                   <button
                                     type="button"
                                     data-accion-cita="${cita.id}"
@@ -291,11 +283,11 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
                                     ${ocupada ? 'disabled' : ''}
                                     class="btn-accion-cita inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer disabled:cursor-not-allowed ${acc.clases}"
                                   >
-                                    ${iconSvg(acc.icono, { className: 'w-3.5 h-3.5' })} ${acc.etiqueta}
+                                    ${iconSvg(acc.icono, { className: 'w-3.5 h-3.5' })}${acc.etiqueta}
                                   </button>
                                 `,
-                                )
-                                .join('')}
+                  )
+                  .join('')}
                               <button
                                 type="button"
                                 data-borrar-cita="${cita.id}"
@@ -311,11 +303,11 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
                             </div>
                           </li>
                         `;
-                      })
-                      .join('')}
+            })
+            .join('')}
                   </ul>
                 `
-          }
+      }
         </div>
         <p class="text-xs text-slate-400 mt-4">
           Mostrando ${visibles.length} de ${state.citas.length} citas registradas.
@@ -349,10 +341,10 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
       render();
     });
 
-    // Botones de cambio de estado
+    // Botones de cambio de estado (CORREGIDO: Se mantiene como string UUID)
     document.querySelectorAll('.btn-accion-cita').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const id = Number(btn.getAttribute('data-accion-cita'));
+        const id = btn.getAttribute('data-accion-cita');
         const nuevoEstado = btn.getAttribute('data-nuevo-estado');
         state.procesandoId = id;
         render();
@@ -370,10 +362,10 @@ export function renderAdminDashboard(contenedor, { onCerrarSesion = () => {} } =
       });
     });
 
-    // Botones de eliminación
+    // Botones de eliminación (CORREGIDO: Se mantiene como string UUID)
     document.querySelectorAll('.btn-borrar-cita').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const id = Number(btn.getAttribute('data-borrar-cita'));
+        const id = btn.getAttribute('data-borrar-cita');
         const paciente = btn.getAttribute('data-paciente') || 'el paciente';
         const fecha = btn.getAttribute('data-fecha') || '';
 
