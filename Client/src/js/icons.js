@@ -169,8 +169,8 @@ const PATHS = {
   ],
   trash2: [
     '<path d="M3 6h18" />',
-    '<path d="M19 6v14c0 1-1 2-2 2H7c-1 2-2-2-2V6" />',
-    '<path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />',
+    '<path d="M19 6v14c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V6h14Z" />',
+    '<path d="M8 6V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v2" />',
     '<line x1="10" x2="10" y1="11" y2="17" />',
     '<line x1="14" x2="14" y1="11" y2="17" />',
   ],
@@ -196,8 +196,8 @@ const PATHS = {
 
 /**
  * Genera la etiqueta HTML completa del icono SVG.
- * @param {string} name - Nombre del icono en camelCase
- * @param {object} options - Opciones de clases y atributos
+ * @param {string} name Nombre del icono en camelCase
+ * @param {object} options Opciones de clases y atributos
  * @returns {string} Markup SVG listo para insertar en innerHTML
  */
 export function iconSvg(name, { className = 'w-5 h-5', extraAttrs = '' } = {}) {
